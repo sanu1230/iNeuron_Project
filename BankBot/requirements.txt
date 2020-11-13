@@ -1,0 +1,6 @@
+# run with cmd/terminal pip install -r requirements.txt
+
+nltk
+numpy
+tensorflow==2.2
+keras

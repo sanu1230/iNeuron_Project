@@ -1,0 +1,102 @@
+{"intents": [
+  {
+   "tag":"greetings",
+   "patterns": ["Hi", "Hi there", "Hey", "Hello", "Good morning", "Good evening", "Hello there",
+     "Hi How are you doing?", "Hi How is it going?", "Good day", "Good afternoon", "whats up"],
+   "responses": ["Hi, May i help you?", "Hi there, how may I help?"],
+   "context": [""]
+    },
+   {
+   "tag":"thanks",
+   "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me",
+    "Thank you very much", "I appreciate that", "I like that"],
+   "responses": ["Happy to help!", "Any time!", "My pleasure", "You are welcome.", "Welcome"],
+   "context": [""]
+    },
+    {
+    "tag": "defaultfallback",
+    "patterns": [],
+    "responses": ["I didn't get that. Can you say it again?", "I missed what you said. What was that?",
+      "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?",
+      "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?",
+      "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?"],
+    "context": []
+    },
+    {
+    "tag":"help",
+    "patterns": ["How can you help me?", "What can you do?", "What help can you provide?", "How helpful can you be?",
+      "What all support are offered?", "Can you help me?", "I need help with my loan account", "Could you help me",
+      "I need assistance on my account", "I need help on my account"],
+    "responses": ["Of course. I'd be happy to. May I know your query", "Sure, I'd be happy to. You can tell me what your query is",
+      "Sure. What do you need help with?", "Of course, It would be my pleasure. How may I help you?" ],
+    "context": [""]
+    },
+    {
+    "tag":"goodbye",
+    "patterns": ["Bye", "Bye now", "Goodbye", "Bye bye", "See you", "See you again", "See you later", "Ok bye", "Adios", "Sayonara"],
+    "responses": ["Thanks for chatting with me. I hope your query is solved", "It was nice to chat with you. Please text me if you need help"],
+    "context": [""]
+    },
+    {
+    "tag": "want_personal_loan",
+    "patterns": ["I need a personal loan", "Can i get a personal loan", "I want personal loan", "Am I eligible for a loan"],
+    "responses": ["Thank you for showing interest in our 'Personal loan' product. Can i ask few question to check your eligibility."],
+    "context": [""]
+    },
+  {
+    "tag": "charges_fees",
+    "patterns": ["Why there is a late charge in my bill ?", "Why have you penalized", "Why did you charge me a fee?",
+      "Why should I pay a late charge ?", "I was not late, but you still charged late fee?", "I see a processing fee on my bill",
+      "There is a late charge on my account.", "There is a processing fee on my account.", "I am chatting regarding the late payment.",
+      "I want to complain about the late fee charged on my account.", "I am not happy with the late charge on my account."],
+    "responses": ["Please be informed that Accounts not paid within terms are subject to a 20% monthly finance charge. Let me check your account"],
+    "context": [""]
+    },
+  {
+    "tag": "top_Up_loan",
+    "patterns": ["I am looking for a top-up/top up loan", "I need a top-up/top up loan", "Am I eligible for more loan", "I need more loan",
+      "Can I get a top-up/top up"],
+    "responses": ["Sure, let me check if you are eligible for a top-up/top up loan."],
+    "context": [""]
+    },
+  {
+    "tag": "foreclosure",
+    "patterns": ["I want to close the personal loan account", "I want to payoff the loan", "I want to foreclose the loan",
+      "I want to end this loan", "I want to foreclose the account."],
+    "responses": ["Sure, let me check what is the total payable amount to close the account"],
+    "context": [""]
+    },
+  {
+    "tag": "loan_application_status",
+    "patterns": ["I want to know the status of my loan application", "What is the status of my loan application?",
+      "May i know the status of my application.", "Tell me the status of my loan application"],
+    "responses": ["Sure, let me check. May I know your application number"],
+    "context": [""]
+    },
+  {
+    "tag": "faq_query",
+    "patterns": [],
+    "responses": [],
+    "context": [""]
+    },
+  {
+    "tag": "small_talks",
+    "patterns": [],
+    "responses": [],
+    "context": [""]
+    },
+  {
+    "tag": "recommend_products",
+    "patterns": [],
+    "responses": [],
+    "context": [""]
+    },
+  {
+    "tag": "upselling",
+    "patterns": [],
+    "responses": [],
+    "context": [""]
+    }
+]
+
+}
