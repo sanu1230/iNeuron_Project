@@ -2,5 +2,5 @@
 
 nltk
 numpy
-tensorflow==2.2
+tensorflow
 keras
