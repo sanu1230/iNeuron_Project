@@ -245,7 +245,7 @@ class ideal(threading.Thread):
             last_bot_reply_time = bot_reply_time
             c = datetime.datetime.now()
             current_time = (c.hour * 60 * 60) + (c.minute * 60) + c.second
-            if (bot_reply_time + 10 == current_time and bot_reply_time == last_bot_reply_time):
+            if (bot_reply_time + 5 == current_time and bot_reply_time == last_bot_reply_time):
                 print("session expired")
                 d["time-stamp"]=timestamp
                 d["user"]=user
