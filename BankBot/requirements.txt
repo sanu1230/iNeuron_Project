@@ -4,3 +4,15 @@ nltk
 numpy
 tensorflow
 keras
+spacy
+pipwin
+pyttsx3
+pyaudio
+SpeechRecognition
+selenium
+pymongo
+nltk
+threading
+
+# pip install pipwin
+# pipwin install pyaudio
