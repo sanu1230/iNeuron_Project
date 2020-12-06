@@ -181,6 +181,7 @@ def getResponse(sentence,ints, userID, intents_json):
                 print('Adding ',match,' to',tag )
                 data_dict[tag] = match
     
+    print(data_dict)
     return result
 
 def pushmsg(msg):
