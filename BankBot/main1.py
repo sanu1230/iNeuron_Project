@@ -1,21 +1,15 @@
 import nltk
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+# from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-from nltk import sent_tokenize
-from nltk.tokenize import word_tokenize
-from nltk.tokenize import RegexpTokenizer
-lemmatizer = WordNetLemmatizer()
-
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('vader_lexicon')
+# from nltk import sent_tokenize
+# from nltk.tokenize import word_tokenize
+# from nltk.tokenize import RegexpTokenizer
 import json
 import pickle
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout
+from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 import random
 import datetime
@@ -25,12 +19,15 @@ import speech_recognition as sp
 import threading
 import pymongo
 from tkinter import *
-import os
-import sys
-import eligibility_class
+import trace
+# import os
+# import sys
+lemmatizer = WordNetLemmatizer()
 
-
-
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('vader_lexicon')
 
 words = []
 classes = []
@@ -44,10 +41,11 @@ for intent in intents['intents']:
     for pattern in intent['patterns']:
 
         # take each word and tokenize it
-        w = nltk.word_tokenize(pattern)
-        words.extend(w)
+        text_token = nltk.word_tokenize(pattern)
+        token_without_sw = [word for word in text_token if word not in stopwords.words()]
+        words.extend(token_without_sw)
         # adding documents
-        documents.append((w, intent['tag']))
+        documents.append((token_without_sw, intent['tag']))
 
         # adding classes to our class list
         if intent['tag'] not in classes:
@@ -58,23 +56,25 @@ words = sorted(list(set(words)))
 
 classes = sorted(list(set(classes)))
 
-print (len(documents), "documents")
-print (len(classes), "classes", classes)
-print (len(words), "unique lemmatized words", words)
+print(len(documents), "documents")
+print(len(classes), "classes", classes)
+print(len(words), "unique lemmatized words", words)
 
-pickle.dump(words,open('words.pkl','wb'))
-pickle.dump(classes,open('classes.pkl','wb'))
+pickle.dump(words, open('words.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
 
 
 # initializing training data, Creating X and y data (bag and output row)
 training = []
 output_empty = [0] * len(classes)
 for doc in documents:
-    bag = [] # initializing bag of words
+    bag = []  # initializing bag of words
     pattern_words = doc[0]  # list of tokenized words for the pattern
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words] # lemmatize each word - create base word, in attempt to represent related words
+    # lemmatize each word - create base word, in attempt to represent related words
+    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
     for w in words:
-        bag.append(1) if w in pattern_words else bag.append(0)   # create our bag of words array with 1, if word match found in current pattern
+        # create our bag of words array with 1, if word match found in current pattern
+        bag.append(1) if w in pattern_words else bag.append(0)
 
     output_row = list(output_empty)
     output_row[classes.index(doc[1])] = 1
@@ -85,12 +85,13 @@ for doc in documents:
 random.shuffle(training)
 training = np.array(training)
 # create train and test lists. X - patterns, Y - intents
-train_x = list(training[:,0])
-train_y = list(training[:,1])
+train_x = list(training[:, 0])
+train_y = list(training[:, 1])
 print("Training data created")
 
 
-# Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
+# Create model - 3 layers.
+# First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
 # equal to number of intents to predict output intent with softmax
 
 model = Sequential()
@@ -114,19 +115,19 @@ from keras.models import load_model
 model = load_model('chatbot_model.h5')
 
 intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+words = pickle.load(open('words.pkl', 'rb'))
+classes = pickle.load(open('classes.pkl', 'rb'))
 
 # Once again, we need to extract the information from our files.
+
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
+
 # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
-
-
 def bow(sentence, words, show_details=True):
     # tokenize the pattern
     sentence_words = clean_up_sentence(sentence)
@@ -138,15 +139,15 @@ def bow(sentence, words, show_details=True):
                 # assign 1 if current word is in the vocabulary position
                 bag[i] = 1
                 if show_details:
-                    print ("found in bag: %s" % w)
-    return(np.array(bag))
+                    print("found in bag: %s" % w)
+    return np.array(bag)
 
 
 def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.9
+    ERROR_THRESHOLD = 0.5
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
@@ -164,107 +165,123 @@ def getResponse(ints, userID, intents_json):
         tag = 'defaultfallback'
     else:
         tag = ints[0]['intent']
-
+    print('Tag -', tag)
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
-        if(i['tag'] == tag):
+        if i['tag'] == tag:
             if 'context_set' in i:
                 context[userID] = i['context_set']
-            if not 'context_filter' in i or \
+                result = random.choice(i['responses'])
+                return result
+            elif 'context_filter' not in i or \
                     (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
                 result = random.choice(i['responses'])
-    return result
+                return result
 
-def pushmsg(msg):
-    ChatLog.config(state=NORMAL)
-    ChatLog.insert(END, "AssistBot: " + msg + '\n\n')
-    ChatLog.config(state=DISABLED)
-    speak(msg)
-
-def entermsg():
-    EntryBox.delete(0, END)
-    if EntryBox.get() != '':
-        userMessage = EntryBox.get()
-    return userMessage
 
 user = []
 bot = []
-def init():
-    global globallist
-    globallist = [user, bot]
+response = ''
+customerId = 0
+StartTime = 0
+lastReplyTime = 0
 
 def chatbot_response():
     query = EntryBox.get().strip()
     EntryBox.delete(0, END)
-    init(
+    global user
+    global bot
+    user.append(query)  # Recording user response
+
     if query != '':
         # Session Recording
         # Resetting lastReplyTime
-        global lastReplyTime
         c = datetime.datetime.now()
         current_time = (c.hour * 60 * 60) + (c.minute * 60) + c.second
+        global lastReplyTime
         lastReplyTime = current_time
+        print("chat_response: ", lastReplyTime)
 
     def enterquery():
         ChatLog.config(state=NORMAL)
         ChatLog.insert(END, "You: " + query + '\n\n')
         ChatLog.config(state=DISABLED)
-        # Recording user response
-        user.append(str(query))
 
     def enterresponse():
+        global response
         userID = '123'
         ints = predict_class(query, model)
         response = getResponse(ints, userID, intents)
-        bot.append(str(response))
         ChatLog.config(state=NORMAL)
-        ChatLog.insert(END, "AssistBot: " + response + '\n\n')
+        ChatLog.insert(END, "AssistBot: " + str(response) + '\n\n')
         ChatLog.config(state=DISABLED)
         EntryBox.delete(0, END)
         ChatLog.yview(END)
         speak(response)
 
+    global response
     enterquery()
     enterresponse()
+    bot.append(response)  # Recording bot response
+
+
+def push_to_mongodb(uniqueSessionId):
+    global StartTime
+    global customerId
+    DEFAULT_CONNECTION_URL = "mongodb://localhost:27017/"
+    DB_NAME = "Metadata"
+    client = pymongo.MongoClient(DEFAULT_CONNECTION_URL)
+    dataBase = client[DB_NAME]
+    COLLECTION_NAME = "Session_Info"
+    collection = dataBase[COLLECTION_NAME]
+    record = {'SessionId': uniqueSessionId,
+              'StartTime': StartTime,
+              'EndTime': datetime.datetime.now(),
+              'CustomerId': customerId,
+              'CustomerStatus': 'Active',
+              'DataFileName': 'abc.txt'}
+    collection.insert_one(record)
+    print(record)
+    COLLECTION_NAME = "Session_Data"
+    collection = dataBase[COLLECTION_NAME]
+    record2 = {'SessionId': uniqueSessionId,
+               'CustomerId': customerId,
+               'UserConv': user,
+               'BotResp': bot,
+               }
+    collection.insert_one(record2)
+    print(record2)
 
 
 def ideal(uniqueSessionId):
     global lastReplyTime
     global customerId
-    init()
+    global user
+    global bot
+    global StartTime
     customerId = random.random()
     c = datetime.datetime.now()
     StartTime = c
-    lastReplyTime = (c.hour * 60 * 60) + (c.minute * 60) + c.second
-    print("uniqueSessionId : ",uniqueSessionId)
+    print("uniqueSessionId : ", uniqueSessionId)
     while True:
         c = datetime.datetime.now()
         current_time = (c.hour * 60 * 60) + (c.minute * 60) + c.second
-        print("While lastReplyTime:",lastReplyTime,current_time)
+        print("While lastReplyTime: ", int(lastReplyTime), " ", current_time)
         sleep(1)
-        if (lastReplyTime + 10 <= current_time):
+        if (lastReplyTime + 20) == current_time:
             print("ideal")
-            DEFAULT_CONNECTION_URL = "mongodb://localhost:27017/"
-            DB_NAME = "Metadata"
-            client = pymongo.MongoClient(DEFAULT_CONNECTION_URL)
-            dataBase = client[DB_NAME]
-            COLLECTION_NAME = "Session_Info"
-            collection = dataBase[COLLECTION_NAME]
-            record = {'SessionId': uniqueSessionId,
-                      'StartTime': StartTime,
-                      'EndTime': datetime.datetime.now(),
-                      'CustomerId': customerId,
-                      'CustomerStatus': 'Active',
-                      'DataFileName': 'abc.txt'}
-            collection.insert_one(record)
-            COLLECTION_NAME = "Session_Data"
-            collection = dataBase[COLLECTION_NAME]
-            record2 = {'SessionId': uniqueSessionId,
-                      'CustomerId': customerId,
-                      'UserConv': user,
-                      'BotResp': bot,
-                    }
-            collection.insert_one(record2)
+            endmsg = '''Since there is no response from your end, I will have to end this conversation now.
+                      I appreciate your time and patients. Please text or speak to me if you need my help. Goodbye'''
+            ChatLog.config(state=NORMAL)
+            ChatLog.insert(END, "AssistBot: " + str(endmsg) + '\n\n')
+            ChatLog.config(state=DISABLED)
+            speak(endmsg)
+        if (lastReplyTime + 40) == current_time:
+            push_to_mongodb(uniqueSessionId)
+            print("Closed")
+            main.destroy()
+            global stop
+            stop = False
             break
 
 
@@ -272,11 +289,11 @@ def session():
     c = datetime.datetime.now()
     current_time = (c.hour * 60 * 60) + (c.minute * 60) + c.second + c.microsecond
     uniqueSessionId = current_time
-    t1 = threading.Thread(target=ideal,args=(uniqueSessionId,))
+    t1 = threading.Thread(target=ideal, args=(uniqueSessionId,))
     t1.start()
 
-# Initializing session
-session()
+
+session()  # Initializing session
 
 
 # ---------------------------------- For Voice -------------------------------- ##
@@ -293,7 +310,7 @@ def speak(word):
 
 def speech_query():
     sr = sp.Recognizer()
-    sr.pause_threshold=1
+    sr.pause_threshold = 1
     with sp.Microphone() as m:
         try:
             audio = sr.listen(m)
@@ -306,10 +323,10 @@ def speech_query():
             print("not recognize")
 
 
-#-----------------------------GUI-------------------------------------#
-
+# -----------------------------GUI------------------------------------- #
+# global main
 main = Tk()
-main.geometry("350x650")
+main.geometry("350x600")
 main.resizable(width=True, height=True)
 main.title("AssistBot")
 
@@ -322,6 +339,7 @@ frame = Frame(main)
 frame.pack()
 
 # Creating a message box in frame
+# global ChatLog
 ChatLog = Text(frame, bd=0, bg="white", height="15", width="35", font="Bahnschrift", wrap=WORD)
 ChatLog.pack(side=LEFT, fill=BOTH, pady=10)
 ChatLog.config(state=DISABLED)
@@ -332,6 +350,7 @@ ChatLog['yscrollcommand'] = sc.set
 sc.pack(side=RIGHT, fill=Y)
 
 # Creating text field
+# global EntryBox
 EntryBox = Entry(main, width="23", font=("Bahnschrift", 20))
 EntryBox.pack(pady=10)
 
@@ -348,23 +367,24 @@ def enter_function(event):
 main.bind('<Return>', enter_function)
 
 
+def intro():
+    intromsg = "Hi, I am AssistBot. Your customer service agent. How may I help you?"
+    ChatLog.config(state=NORMAL)
+    ChatLog.insert(END, "AssistBot: " + intromsg + '\n\n')
+    ChatLog.config(state=DISABLED)
+    speak(intromsg)
+
+
 def repeatl():
-    while True:
+    global stop
+    while stop:
         speech_query()
 
-
-def intro():
-    intro = "Hi, I am AssistBot. Your customer service agent. How may I help you?"
-    ChatLog.config(state=NORMAL)
-    ChatLog.insert(END, "AssistBot: " + intro + '\n\n')
-    ChatLog.config(state=DISABLED)
-    speak(intro)
-
-
+stop = True
 r = threading.Thread(target=repeatl)
 r.start()
+
 n = threading.Thread(target=intro)
 n.start()
 
 main.mainloop()
-
