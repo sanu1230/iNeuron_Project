@@ -1,0 +1,125 @@
+{"intents": [
+  {
+   "tag":"greetings",
+   "patterns": ["Hi", "Hi there", "Hey", "Hello", "Good morning", "Good evening", "Hello there",
+     "Hi How are you doing?", "Hi How is it going?", "Good day", "Good afternoon", "whats up"],
+   "responses": ["Hi, How may i help you?", "Hi there, how may I help?"],
+   "context_set": [""]
+    },
+  {
+   "tag":"thanks",
+   "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me",
+    "Thank you very much", "I appreciate that", "I like that", "Thank you for your help"],
+   "responses": ["Happy to help!", "Any time!", "My pleasure", "You are welcome.", "Welcome"]
+    },
+  {
+    "tag": "defaultfallback",
+    "patterns": [],
+    "responses": ["I didn't get that. Can you say it again?", "I missed what you said. What was that?",
+      "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?",
+      "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?",
+      "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?"]
+    },
+  {
+    "tag":"help",
+    "patterns": ["How can you help me?", "What can you do?", "What help can you provide?", "How helpful can you be?",
+      "What all support are offered?", "Can you help me?", "I need help with my loan account", "Could you help me",
+      "I need assistance on my account", "I need help on my account"],
+    "responses": ["Of course. I'd be happy to. May I know your query", "Sure, I'd be happy to. You can tell me what your query is?",
+      "Sure, How may I help you?", "Of course, It would be my pleasure. How may I help you?" ]
+    },
+  {
+    "tag":"goodbye",
+    "patterns": ["Bye", "bye-bye", "Bye now", "Goodbye", "Bye bye", "See you", "See you again", "See you later", "Ok bye", "Adios", "Sayonara"],
+    "responses": ["Thanks for chatting with me. I hope your query is solved. Goodbye.",
+      "It was nice to chat with you. Please text me if you need help. Goodbye."]
+    },
+  {
+    "tag": "want_personal_loan",
+    "patterns": ["I need a personal loan", "personal loan", "need loan", "I need a loan", "Can i get a personal loan",
+      "Hi, I want personal loan", "Am I eligible for a loan", "Hi, I need a loan"],
+    "responses": ["Thank you for showing interest in our 'Personal loan' product. Can i ask few question to check your loan eligibility."],
+    "context_set": ["personal_loan"]
+    },
+  {
+    "tag": "charges_fees",
+    "patterns": ["Why there is a late charge in my bill ?", "Why have you penalized", "Why did you charge me a fee?",
+      "Why should I pay a late charge ?", "I was not late, but you still charged late fee?", "I see a processing fee on my bill",
+      "There is a late charge on my account.", "There is a processing fee on my account.", "I am chatting regarding the late payment.",
+      "I want to complain about the late fee charged on my account.", "I am not happy with the late charge on my account."],
+    "responses": ["Please be informed that Accounts not paid within terms are subject to a 20% monthly finance charge. Let me check your account. May I know your Customer Id"],
+    "context_set": ["charges"]
+    },
+  {
+    "tag": "top_Up_loan",
+    "patterns": ["I am looking for a top-up loan", "I need a top up loan", "Am I eligible for more loan", "I need more loan",
+      "Can I get a top up"],
+    "responses": ["Sure, let me check if you are eligible for a top-up loan."],
+    "context_set": ["top_up"]
+    },
+  {
+    "tag": "foreclosure",
+    "patterns": ["I want to close the personal loan account", "I want to payoff the loan", "I want to foreclose the loan",
+      "I want to end this loan", "I want to foreclose the account.", "I need to foreclose the loan", "I need to close the account",
+      "I want to close the loan"],
+    "responses": ["Sure, let me check what is the total payable amount to close the account"],
+    "context_set": ["foreclose"]
+    },
+  {
+    "tag": "loan_application_status",
+    "patterns": ["I want to know the status of my loan application", "What is the status of my loan application?",
+      "May i know the status of my application.", "Tell me the status of my loan application"],
+    "responses": ["Sure, let me check. May I know your application number"],
+    "context_set": ["application_status"]
+    },
+  {
+    "tag": "personal_loan_yes",
+    "patterns": [],
+    "responses": ["May I know your complete name? (type or say 'my name is' and then your complete name)"]
+    },
+  {
+    "tag": "personal_loan_no",
+    "patterns": [],
+    "responses": ["Is there anything else I may help you with"],
+    "context_set": ["anything_else"]
+    },
+  {
+    "tag": "anything_else_yes",
+    "patterns": [],
+    "responses": ["May I know your query?"],
+    "context_set": [""]
+  },
+  {
+    "tag": "anything_else_no",
+    "patterns": [],
+    "responses": ["Thanks for chatting with me. I hope your query is solved. Goodbye.",
+      "It was nice to chat with you. Please text me if you need help. Goodbye."]
+  },
+  {
+    "tag": "name",
+    "patterns": ["My name is ", "name is ", "ok my name is "],
+    "responses": ["May I know your date of birth? (type or say 'date is' and then the date in dd-mm-yyyy format)"],
+    "context_filter": ["personal_loan"]
+    },
+  {
+    "tag": "dob",
+    "patterns": ["date is 01/01/2000", "My date of birth is 15/05/1980", "date is 19/05/2011", "date is 25/12/1999"],
+    "responses": ["May I know  your net income?\n(type or say 'Net income' and then the digits)"],
+    "context_filter": ["personal_loan"]
+    },
+  {
+    "tag": "net_income",
+    "patterns": ["Net income 35500", "Net income 25000", "My net income is 30000", "Net income 30000 per month", "I earn Net income 40000 per month"],
+    "responses": ["May I know your total expenses including all your monthly installments.\n (type or say 'Total Expenses' and then the digits)"],
+    "context_filter": ["personal_loan"]
+    },
+  {
+    "tag": "total_expenses",
+    "patterns": ["Total Expenses 35500", "Total Expenses 25000", "My total expenses are 30000",
+      "Total Expenses 15000 per month", "Total Expenses 40000 per month"],
+    "responses": ["calc_eli"],
+    "context_filter": ["personal_loan"]
+    }
+]
+
+}
