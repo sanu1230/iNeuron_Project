@@ -9,7 +9,7 @@
   {
    "tag":"thanks",
    "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me",
-    "Thank you very much", "I appreciate that", "I like that"],
+    "Thank you very much", "I appreciate that", "I like that", "Thank you for your help"],
    "responses": ["Happy to help!", "Any time!", "My pleasure", "You are welcome.", "Welcome"]
     },
   {
@@ -30,13 +30,14 @@
     },
   {
     "tag":"goodbye",
-    "patterns": ["Bye", "Bye now", "Goodbye", "Bye bye", "See you", "See you again", "See you later", "Ok bye", "Adios", "Sayonara"],
-    "responses": ["Thanks for chatting with me. I hope your query is solved", "It was nice to chat with you. Please text me if you need help"]
+    "patterns": ["Bye", "bye-bye", "Bye now", "Goodbye", "Bye bye", "See you", "See you again", "See you later", "Ok bye", "Adios", "Sayonara"],
+    "responses": ["Thanks for chatting with me. I hope your query is solved. Goodbye.",
+      "It was nice to chat with you. Please text me if you need help. Goodbye."]
     },
   {
     "tag": "want_personal_loan",
     "patterns": ["I need a personal loan", "personal loan", "need loan", "I need a loan", "Can i get a personal loan",
-      "I want personal loan", "Am I eligible for a loan"],
+      "Hi, I want personal loan", "Am I eligible for a loan", "Hi, I need a loan"],
     "responses": ["Thank you for showing interest in our 'Personal loan' product. Can i ask few question to check your loan eligibility."],
     "context_set": ["personal_loan"]
     },
@@ -46,8 +47,7 @@
       "Why should I pay a late charge ?", "I was not late, but you still charged late fee?", "I see a processing fee on my bill",
       "There is a late charge on my account.", "There is a processing fee on my account.", "I am chatting regarding the late payment.",
       "I want to complain about the late fee charged on my account.", "I am not happy with the late charge on my account."],
-    "responses": ["Please be informed that Accounts not paid within terms are subject to a 20% monthly finance charge." \
-      "Let me check your account. May I know your Customer Id"],
+    "responses": ["Please be informed that Accounts not paid within terms are subject to a 20% monthly finance charge. Let me check your account. May I know your Customer Id"],
     "context_set": ["charges"]
     },
   {
@@ -73,16 +73,33 @@
     "context_set": ["application_status"]
     },
   {
-    "tag": "affirm",
-    "patterns": ["yes", "yep", "okay", "fine", "cool", "sure", "all right", "yes please", "go ahead", "positive", "ok man", "of course"],
-    "responses": ["May I know your date of birth?\n(type or say 'date is' and then the date in dd-mm-yyyy format)"],
-    "context_filter": ["personal_loan"]
+    "tag": "personal_loan_yes",
+    "patterns": [],
+    "responses": ["May I know your complete name? (type or say 'my name is' and then your complete name)"]
     },
   {
-    "tag": "deny",
-    "patterns": ["no", "nope", "never", "na", "naa", "I do not", "you cannot", "No please", "stop", "no man"],
-    "responses": [],
-    "context_filter": ["personal_loan", "charges", "top_up", "foreclose", "application_status"]
+    "tag": "personal_loan_no",
+    "patterns": [],
+    "responses": ["Is there anything else I may help you with"],
+    "context_set": ["anything_else"]
+    },
+  {
+    "tag": "anything_else_yes",
+    "patterns": [],
+    "responses": ["May I know your query?"],
+    "context_set": [""]
+  },
+  {
+    "tag": "anything_else_no",
+    "patterns": [],
+    "responses": ["Thanks for chatting with me. I hope your query is solved. Goodbye.",
+      "It was nice to chat with you. Please text me if you need help. Goodbye."]
+  },
+  {
+    "tag": "name",
+    "patterns": ["My name is ", "name is ", "ok my name is "],
+    "responses": ["May I know your date of birth? (type or say 'date is' and then the date in dd-mm-yyyy format)"],
+    "context_filter": ["personal_loan"]
     },
   {
     "tag": "dob",
@@ -93,7 +110,7 @@
   {
     "tag": "net_income",
     "patterns": ["Net income 35500", "Net income 25000", "My net income is 30000", "Net income 30000 per month", "I earn Net income 40000 per month"],
-    "responses": ["May I know your total expenses including all your monthly installments.\n(type or say 'Total Expenses' and then the digits)"],
+    "responses": ["May I know your total expenses including all your monthly installments.\n (type or say 'Total Expenses' and then the digits)"],
     "context_filter": ["personal_loan"]
     },
   {
@@ -102,12 +119,6 @@
       "Total Expenses 15000 per month", "Total Expenses 40000 per month"],
     "responses": ["calc_eli"],
     "context_filter": ["personal_loan"]
-    },
-  {
-    "tag": "upselling",
-    "patterns": [],
-    "responses": [],
-    "context": []
     }
 ]
 
