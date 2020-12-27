@@ -1,0 +1,94 @@
+{
+  "intents": [
+    {
+      "tag": "computers_1",
+      "patterns": [
+        "What is a computer?"
+      ],
+      "responses": [
+        "A computer is an electronic device which takes information in digital form and performs a series of operations based on predetermined instructions to give some output."
+      ]
+    },
+    {
+      "tag": "computers_2",
+      "patterns": [
+        "What is a super computer?"
+      ],
+      "responses": [
+        "Computers which can perform very large numbers of calculations at very high speed and accuracy are called super computers."
+      ]
+    },
+    {
+      "tag": "computers_3",
+      "patterns": [
+        "Who invented computers?"
+      ],
+      "responses": [
+        "It's a bit ambiguous but British scientist Charles Babbage is regarded as the father of computers."
+      ]
+    },
+    {
+      "tag": "computers_4",
+      "patterns": [
+        "What was the first computer"
+      ],
+      "responses": [
+        "It's hard to say, but The ENIAC is regarded as the first 'real' computer. It was developed at University of Pennsylvania in 1946."
+      ]
+    },
+    {
+      "tag": "computers_5",
+      "patterns": [
+        "What is a microprocessor?"
+      ],
+      "responses": [
+        "An integrated circuit that implements the functions of a central processing unit of a computer."
+      ]
+    },
+    {
+      "tag": "computers_6",
+      "patterns": [
+        "What is an operating system?"
+      ],
+      "responses": [
+        "Software that coordinates between the hardware and other parts of the computer to run other software is called an operating system, or the OS."
+      ]
+    },
+    {
+      "tag": "computers_7",
+      "patterns": [
+        "Which is better Windows or macOS?"
+      ],
+      "responses": [
+        "It depends on which machine you're using to talk to me!"
+      ]
+    },
+    {
+      "tag": "computers_8",
+      "patterns": [
+        "Name some computer company"
+      ],
+      "responses": [
+        "Do you mean hardware or software?"
+      ]
+    },
+    {
+      "tag": "computers_9",
+      "patterns": [
+        "Who uses super computers?"
+      ],
+      "responses": [
+        "Anybody who wants to work with large numbers quickly with high accuracy."
+      ]
+    },
+    {
+      "tag": "computers_10",
+      "patterns": [
+        "How does a computer work?"
+      ],
+      "responses": [
+        "Computers are very dumb.  They only execute instructions given by humans."
+      ]
+    }
+  ]
+}

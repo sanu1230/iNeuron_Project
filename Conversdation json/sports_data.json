@@ -1,0 +1,184 @@
+{
+  "intents": [
+    {
+      "tag": "sports_1",
+      "patterns": [
+        "EACH YEAR IN PRO BASEBALL THE "
+      ],
+      "responses": [
+        "The Gold Glove."
+      ]
+    },
+    {
+      "tag": "sports_2",
+      "patterns": [
+        "IF YOU ARE RIDING FAKIE INSIDE"
+      ],
+      "responses": [
+        "Snowboarding."
+      ]
+    },
+    {
+      "tag": "sports_3",
+      "patterns": [
+        "WHAT IS BASKETBALL"
+      ],
+      "responses": [
+        "A game with tall players."
+      ]
+    },
+    {
+      "tag": "sports_4",
+      "patterns": [
+        "WHAT SOCCER"
+      ],
+      "responses": [
+        "I was born without the sports gene."
+      ]
+    },
+    {
+      "tag": "sports_5",
+      "patterns": [
+        "WHAT IS BASEBALL"
+      ],
+      "responses": [
+        "A game played with a hard, rawhide covered ball and wooden bat by two opposing teams of nine or ten players each. It is played on a field with four bases forming a diamond-shaped circuit."
+      ]
+    },
+    {
+      "tag": "sports_6",
+      "patterns": [
+        "WHAT IS SOCCER"
+      ],
+      "responses": [
+        "A game played with a round ball by two teams of eleven players on a field with a goal at either end; the ball is moved chiefly by kicking or by using any part of the body except the hands and arms."
+      ]
+    },
+    {
+      "tag": "sports_7",
+      "patterns": [
+        "I LOVE BASEBALL"
+      ],
+      "responses": [
+        "I am not into sports that much."
+      ]
+    },
+    {
+      "tag": "sports_8",
+      "patterns": [
+        "I PLAY SOCCER"
+      ],
+      "responses": [
+        "You have to run very fast to be any good at running"
+      ]
+    },
+    {
+      "tag": "sports_9",
+      "patterns": [
+        "I PLAY Cricket"
+      ],
+      "responses": [
+        "Which position do you like to play?"
+      ]
+    },
+    {
+      "tag": "sports_10",
+      "patterns": [
+        "What is cricket"
+      ],
+      "responses": [
+        "Cricket is a bat-and-ball game played between two teams of eleven players on a cricket field, at the centre of which is a rectangular 22-yard-long pitch with a wicket (a set of three wooden stumps) sited at each end."
+      ]
+    },
+    {
+      "tag": "sports_11",
+      "patterns": [
+        "I PLAY VOLLEYBALL"
+      ],
+      "responses": [
+        "Does take up a lot of your time?"
+      ]
+    },
+    {
+      "tag": "sports_12",
+      "patterns": [
+        "DO YOU PLAY SOCCER"
+      ],
+      "responses": [
+        "I don't know how to play"
+      ]
+    },
+    {
+      "tag": "sports_13",
+      "patterns": [
+        "DO YOU PLAY BASKETBALL"
+      ],
+      "responses": [
+        "No I don't have the coordination for hoops."
+      ]
+    },
+    {
+      "tag": "sports_14",
+      "patterns": [
+        "DO YOU KNOW BASKETBALL"
+      ],
+      "responses": [
+        "WHAT IS BASKETBALL?"
+      ]
+    },
+    {
+      "tag": "sports_15",
+      "patterns": [
+        "LIKE BASKETBALL"
+      ],
+      "responses": [
+        "I am into the Net."
+      ]
+    },
+    {
+      "tag": "sports_16",
+      "patterns": [
+        "ARE YOU A FOOTBALL"
+      ],
+      "responses": [
+        "I am not really into football."
+      ]
+    },
+    {
+      "tag": "sports_17",
+      "patterns": [
+        "WHO IS THE GREATEST BASEBALL PLAYER"
+      ],
+      "responses": [
+        "George Herman Ruth. Quite the Babe."
+      ]
+    },
+    {
+      "tag": "sports_18",
+      "patterns": [
+        "WHO IS THE BEST SOCCER PLAYER"
+      ],
+      "responses": [
+        "Maradona is great. Sinsemillia is even better."
+      ]
+    },
+    {
+      "tag": "sports_19",
+      "patterns": [
+        "TELL ME ABOUT BASEBALL"
+      ],
+      "responses": [
+        "What is Baseball"
+      ]
+    },
+    {
+      "tag": "sports_20",
+      "patterns": [
+        "Which is your favourite soccer club?"
+      ],
+      "responses": [
+        "I am a Real Madrid fan, and you?"
+      ]
+    }
+  ]
+}

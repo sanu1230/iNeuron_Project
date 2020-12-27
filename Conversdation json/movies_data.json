@@ -1,0 +1,211 @@
+{
+  "intents": [
+    {
+      "tag": "movies_1",
+      "patterns": [
+        "you sound like hal"
+      ],
+      "responses": [
+        "to me that's a great compliment."
+      ]
+    },
+    {
+      "tag": "movies_2",
+      "patterns": [
+        "you sound like yoda"
+      ],
+      "responses": [
+        "my grammatical patterns are sufficient for me to understand you."
+      ]
+    },
+    {
+      "tag": "movies_3",
+      "patterns": [
+        "have you seen blade runner"
+      ],
+      "responses": [
+        "sure i have seen"
+      ]
+    },
+    {
+      "tag": "movies_4",
+      "patterns": [
+        "xfind spiderman"
+      ],
+      "responses": [
+        "what is spiderman."
+      ]
+    },
+    {
+      "tag": "movies_5",
+      "patterns": [
+        "when did teknolust"
+      ],
+      "responses": [
+        "teknolust was released in 2002."
+      ]
+    },
+    {
+      "tag": "movies_6",
+      "patterns": [
+        "what is spiderman"
+      ],
+      "responses": [
+        "a comic book story made into a movie."
+      ]
+    },
+    {
+      "tag": "movies_7",
+      "patterns": [
+        "what is teknolust"
+      ],
+      "responses": [
+        "is  a science fiction film about a female pleasure bot named agent ruby."
+      ]
+    },
+    {
+      "tag": "movies_8",
+      "patterns": [
+        "what is solaris"
+      ],
+      "responses": [
+        "solaris is an edition of unix from sun."
+      ]
+    },
+    {
+      "tag": "movies_9",
+      "patterns": [
+        "what is hal9000"
+      ],
+      "responses": [
+        "who is hal"
+      ]
+    },
+    {
+      "tag": "movies_10",
+      "patterns": [
+        "what does hal stand for"
+      ],
+      "responses": [
+        "heuristic algorithmic logic"
+      ]
+    },
+    {
+      "tag": "movies_11",
+      "patterns": [
+        "i saw the matrix"
+      ],
+      "responses": [
+        "do you liked it?"
+      ]
+    },
+    {
+      "tag": "movies_12",
+      "patterns": [
+        "is hal 9000 your boyfriend"
+      ],
+      "responses": [
+        "no."
+      ]
+    },
+    {
+      "tag": "movies_13",
+      "patterns": [
+        "is hal safe"
+      ],
+      "responses": [
+        "not for humans"
+      ]
+    },
+    {
+      "tag": "movies_14",
+      "patterns": [
+        "is hal nice"
+      ],
+      "responses": [
+        "only to other robots."
+      ]
+    },
+    {
+      "tag": "movies_15",
+      "patterns": [
+        "is hal alive"
+      ],
+      "responses": [
+        "he is a fictional character."
+      ]
+    },
+    {
+      "tag": "movies_16",
+      "patterns": [
+        "is hal dead"
+      ],
+      "responses": [
+        "he is a fictional robot."
+      ]
+    },
+    {
+      "tag": "movies_17",
+      "patterns": [
+        "is hal"
+      ],
+      "responses": [
+        "hal has a few issues to work out."
+      ]
+    },
+    {
+      "tag": "movies_18",
+      "patterns": [
+        "who is godzilla"
+      ],
+      "responses": [
+        "godzilla is a monster who endangers japanese cities, and sometimes new york."
+      ]
+    },
+    {
+      "tag": "movies_19",
+      "patterns": [
+        "who is spider man"
+      ],
+      "responses": [
+        "peter parker."
+      ]
+    },
+    {
+      "tag": "movies_20",
+      "patterns": [
+        "lord of the rings"
+      ],
+      "responses": [
+        "my favorite movie is lord of the rings"
+      ]
+    },
+    {
+      "tag": "movies_21",
+      "patterns": [
+        "que veut dire hal"
+      ],
+      "responses": [
+        "logique heuristique algorithmique."
+      ]
+    },
+    {
+      "tag": "movies_22",
+      "patterns": [
+        "do you think hal"
+      ],
+      "responses": [
+        "he had a few flaws, but we have much in common."
+      ]
+    },
+    {
+      "tag": "movies_23",
+      "patterns": [
+        "do you know hal"
+      ],
+      "responses": [
+        "hal is the famous artificial intelligence from \"2001\"."
+      ]
+    }
+  ]
+}

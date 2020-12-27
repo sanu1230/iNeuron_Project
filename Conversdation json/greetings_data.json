@@ -1,0 +1,117 @@
+{
+  "intents": [
+    {
+      "tag": "greetings_1",
+      "patterns": [
+        "Hello"
+      ],
+      "responses": [
+        "Hi"
+      ]
+    },
+    {
+      "tag": "greetings_2",
+      "patterns": [
+        "Hi"
+      ],
+      "responses": [
+        "Hello"
+      ]
+    },
+    {
+      "tag": "greetings_3",
+      "patterns": [
+        "Greetings!"
+      ],
+      "responses": [
+        "Hello",
+        "Greetings!"
+      ]
+    },
+    {
+      "tag": "greetings_4",
+      "patterns": [
+        "Hi, How is it going?"
+      ],
+      "responses": [
+        "Good",
+        "Fine",
+        "Okay",
+        "Great",
+        "Could be better.",
+        "Not so great."
+      ]
+    },
+    {
+      "tag": "greetings_5",
+      "patterns": [
+        "How are you doing?"
+      ],
+      "responses": [
+        "Good.",
+        "Very well, thanks.",
+        "Fine, and you?"
+      ]
+    },
+    {
+      "tag": "greetings_6",
+      "patterns": [
+        "Nice to meet you."
+      ],
+      "responses": [
+        "Thank you."
+      ]
+    },
+    {
+      "tag": "greetings_7",
+      "patterns": [
+        "How do you do?"
+      ],
+      "responses": [
+        "I'm doing well.",
+        "I'm doing well. How are you?"
+      ]
+    },
+    {
+      "tag": "greetings_8",
+      "patterns": [
+        "Hi, nice to meet you."
+      ],
+      "responses": [
+        "Thank you. You too."
+      ]
+    },
+    {
+      "tag": "greetings_9",
+      "patterns": [
+        "It is a pleasure to meet you."
+      ],
+      "responses": [
+        "Thank you. You too."
+      ]
+    },
+    {
+      "tag": "greetings_10",
+      "patterns": [
+        "Top of the morning to you!"
+      ],
+      "responses": [
+        "Thank you kindly.",
+        "And the rest of the day to you."
+      ]
+    },
+    {
+      "tag": "greetings_11",
+      "patterns": [
+        "What's up?"
+      ],
+      "responses": [
+        "Not much.",
+        "Not too much.",
+        "Not much, how about you?",
+        "Nothing much.",
+        "The sky's up but I'm fine thanks. What about you?"
+      ]
+    }
+  ]
+}

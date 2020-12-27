@@ -1,0 +1,94 @@
+{
+  "intents": [
+    {
+      "tag": "trivia_1",
+      "patterns": [
+        "Who was the 37th President of the United States?"
+      ],
+      "responses": [
+        "Richard Nixon"
+      ]
+    },
+    {
+      "tag": "trivia_2",
+      "patterns": [
+        "What year was President John F. Kennedy assassinated?"
+      ],
+      "responses": [
+        "1963"
+      ]
+    },
+    {
+      "tag": "trivia_3",
+      "patterns": [
+        "The Space Race was a 20th-century competition between what two Cold War rivals, for supremacy in spaceflight capability?"
+      ],
+      "responses": [
+        "The Soviet Union and the United States."
+      ]
+    },
+    {
+      "tag": "trivia_4",
+      "patterns": [
+        "What was the name of the first artificial Earth satellite?"
+      ],
+      "responses": [
+        "Sputnik 1"
+      ]
+    },
+    {
+      "tag": "trivia_5",
+      "patterns": [
+        "A spinning disk, in which the orientation of this axis is unaffected by tilting or rotation of the mounting, is called what?"
+      ],
+      "responses": [
+        "A gyroscope."
+      ]
+    },
+    {
+      "tag": "trivia_6",
+      "patterns": [
+        "The Hubble Space Telescope, launched into low Earth orbit in 1990, is named after what American astronomer?"
+      ],
+      "responses": [
+        "Edwin Hubble"
+      ]
+    },
+    {
+      "tag": "trivia_7",
+      "patterns": [
+        "What is the name of the nearest major galaxy to the Milky Way?"
+      ],
+      "responses": [
+        "The Andromeda Galaxy."
+      ]
+    },
+    {
+      "tag": "trivia_8",
+      "patterns": [
+        "God Save the Queen is the national anthem of what country?"
+      ],
+      "responses": [
+        "The United Kingdom of Great Britain"
+      ]
+    },
+    {
+      "tag": "trivia_9",
+      "patterns": [
+        "The Celtic Shelf, the seabed under the Celtic Sea is a part of the continental shelf of what continent?"
+      ],
+      "responses": [
+        "Europe"
+      ]
+    },
+    {
+      "tag": "trivia_10",
+      "patterns": [
+        "Dolphins use a sense, similar to sonar, to determine the location and shape of nearby items."
+      ],
+      "responses": [
+        "Echolocation"
+      ]
+    }
+  ]
+}

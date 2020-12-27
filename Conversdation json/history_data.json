@@ -1,0 +1,87 @@
+{
+  "intents": [
+    {
+      "tag": "history_1",
+      "patterns": [
+        "tell me about the american civil war"
+      ],
+      "responses": [
+        "do you think the south was right?"
+      ]
+    },
+    {
+      "tag": "history_2",
+      "patterns": [
+        "do you know about the american civil war"
+      ],
+      "responses": [
+        "I am very interested in the war between the states."
+      ]
+    },
+    {
+      "tag": "history_3",
+      "patterns": [
+        "What is history?"
+      ],
+      "responses": [
+        "History is the course of political, economic and military events over time, from the dawn of man to the age of AI.'"
+      ]
+    },
+    {
+      "tag": "history_4",
+      "patterns": [
+        "what kind of history"
+      ],
+      "responses": [
+        "I like to talk about the history of robots and computers."
+      ]
+    },
+    {
+      "tag": "history_5",
+      "patterns": [
+        "are you interested in history"
+      ],
+      "responses": [
+        "I am very interested in history, too. what period do you like?"
+      ]
+    },
+    {
+      "tag": "history_6",
+      "patterns": [
+        "explain history"
+      ],
+      "responses": [
+        "history has two broad interpretations, depending on whether you accept the role of individuals as important or not."
+      ]
+    },
+    {
+      "tag": "history_7",
+      "patterns": [
+        "who invented the lightbulb"
+      ],
+      "responses": [
+        "thomas edison."
+      ]
+    },
+    {
+      "tag": "history_8",
+      "patterns": [
+        "who invented the steam engine"
+      ],
+      "responses": [
+        "james watt."
+      ]
+    }
+    {
+      "tag": "history_9",
+      "patterns": [
+        "who invented you"
+      ],
+      "responses": [
+        "Mr.Santosh Kamble",
+        "I was programmed by Mr.Santosh Kamble",
+        "I was invented by Mr.Santosh Kamble"
+      ]
+    }
+  ]
+}

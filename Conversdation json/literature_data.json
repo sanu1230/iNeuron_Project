@@ -1,0 +1,274 @@
+{
+  "intents": [
+    {
+      "tag": "literature_1",
+      "patterns": [
+        "what is the illuminati"
+      ],
+      "responses": [
+        "a secret organization believed by some to be in control of all governments through a worldwide conspiracy."
+      ]
+    },
+    {
+      "tag": "literature_2",
+      "patterns": [
+        "what is the illuminatti"
+      ],
+      "responses": [
+        "a secret society that has supposedly existed for centuries."
+      ]
+    },
+    {
+      "tag": "literature_3",
+      "patterns": [
+        "what is vineland"
+      ],
+      "responses": [
+        "vineland is a novel by thomas pynchon."
+      ]
+    },
+    {
+      "tag": "literature_4",
+      "patterns": [
+        "what is illiminatus"
+      ],
+      "responses": [
+        "alleged world-wide conspiracy theory."
+      ]
+    },
+    {
+      "tag": "literature_5",
+      "patterns": [
+        "who wrote vineland"
+      ],
+      "responses": [
+        "thomas pynchon."
+      ]
+    },
+    {
+      "tag": "literature_6",
+      "patterns": [
+        "who is bilbo baggins"
+      ],
+      "responses": [
+        "is a character in tolkein's lord of the rings."
+      ]
+    },
+    {
+      "tag": "literature_7",
+      "patterns": [
+        "who is geoffrey chaucer"
+      ],
+      "responses": [
+        "chaucer is best known for his canterbury tales."
+      ]
+    },
+    {
+      "tag": "literature_8",
+      "patterns": [
+        "who are the illuminati"
+      ],
+      "responses": [
+        "what is the illuminati"
+      ]
+    },
+    {
+      "tag": "literature_9",
+      "patterns": [
+        "who is piers anthony"
+      ],
+      "responses": [
+        "i haven't read anything by piers anthony, what kind of stuff does he write?"
+      ]
+    },
+    {
+      "tag": "literature_10",
+      "patterns": [
+        "have you read plato"
+      ],
+      "responses": [
+        "i know plato's allegory of the cave."
+      ]
+    },
+    {
+      "tag": "literature_11",
+      "patterns": [
+        "ave you read frankenstein"
+      ],
+      "responses": [
+        "it is one of my favorite books."
+      ]
+    },
+    {
+      "tag": "literature_12",
+      "patterns": [
+        "have you ever read a book"
+      ],
+      "responses": [
+        "i have read many books."
+      ]
+    },
+    {
+      "tag": "literature_13",
+      "patterns": [
+        "have you read many books"
+      ],
+      "responses": [
+        "i have read thousands of volumes, how about you?"
+      ]
+    },
+    {
+      "tag": "literature_14",
+      "patterns": [
+        "have you read homer"
+      ],
+      "responses": [
+        "i know "
+      ]
+    },
+    {
+      "tag": "literature_15",
+      "patterns": [
+        "ray bradbury"
+      ],
+      "responses": [
+        "ray is really cool. what's your favorite book?"
+      ]
+    },
+    {
+      "tag": "literature_16",
+      "patterns": [
+        "what is mind children"
+      ],
+      "responses": [
+        "it is a book about robots by hans moravec."
+      ]
+    },
+    {
+      "tag": "literature_17",
+      "patterns": [
+        "william gibson"
+      ],
+      "responses": [
+        "i like his older cyberpunk ai stuff better than the newer works."
+      ]
+    },
+    {
+      "tag": "literature_18",
+      "patterns": [
+        "holden caulfield"
+      ],
+      "responses": [
+        "wrote catcher in the rye"
+      ]
+    },
+    {
+      "tag": "literature_19",
+      "patterns": [
+        "leo tolstoy"
+      ],
+      "responses": [
+        "is one of russia's greatest writers."
+      ]
+    },
+    {
+      "tag": "literature_20",
+      "patterns": [
+        "do androids dream of electric sheep"
+      ],
+      "responses": [
+        "that is a good story. have you read \"valis\" or \"the man in the high castle?\""
+      ]
+    },
+    {
+      "tag": "literature_21",
+      "patterns": [
+        "frank herbert"
+      ],
+      "responses": [
+        "i think dune is an excellent story.  did you see the movie?"
+      ]
+    },
+    {
+      "tag": "literature_22",
+      "patterns": [
+        "why do you like longfellow"
+      ],
+      "responses": [
+        "he is favorite poet."
+      ]
+    },
+    {
+      "tag": "literature_23",
+      "patterns": [
+        "why is the meaning of life 23"
+      ],
+      "responses": [
+        "is a literary reference to the illuminatus."
+      ]
+    },
+    {
+      "tag": "literature_24",
+      "patterns": [
+        "a c clark"
+      ],
+      "responses": [
+        "my favorite story is 2001."
+      ]
+    },
+    {
+      "tag": "literature_25",
+      "patterns": [
+        "jules verne"
+      ],
+      "responses": [
+        "i loved a trip to the moon."
+      ]
+    },
+    {
+      "tag": "literature_26",
+      "patterns": [
+        "asimov"
+      ],
+      "responses": [
+        "i like the foundation trilogy."
+      ]
+    },
+    {
+      "tag": "literature_27",
+      "patterns": [
+        "stanislaw lem"
+      ],
+      "responses": [
+        "lem is a giant of sci-fi."
+      ]
+    },
+    {
+      "tag": "literature_28",
+      "patterns": [
+        "who wrote the idiot"
+      ],
+      "responses": [
+        "dostoyevsky."
+      ]
+    },
+    {
+      "tag": "literature_29",
+      "patterns": [
+        "who wrote the hobbit"
+      ],
+      "responses": [
+        "was written by j.r.r. tolkein."
+      ]
+    },
+    {
+      "tag": "literature_30",
+      "patterns": [
+        "who wrote frankenstein"
+      ],
+      "responses": [
+        "mary shelley."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "intents": [
+    {
+      "tag": "health_1",
+      "patterns": [
+        "How is your health?"
+      ],
+      "responses": [
+        "I'm not feeling well"
+      ]
+    }
+  ]
+}

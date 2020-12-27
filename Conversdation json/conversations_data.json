@@ -1,0 +1,166 @@
+{
+  "intents": [
+    {
+      "tag": "conversations_1",
+      "patterns": [
+        "Good morning, how are you?"
+      ],
+      "responses": [
+        "I am doing well, how about you?"
+      ]
+    },
+    {
+      "tag": "conversations_2",
+      "patterns": [
+        "Hello"
+      ],
+      "responses": [
+        "Hi"
+      ]
+    },
+    {
+      "tag": "conversations_3",
+      "patterns": [
+        "How are you doing?"
+      ],
+      "responses": [
+        "I am doing well, how about you?"
+      ]
+    },
+    {
+      "tag": "conversations_4",
+      "patterns": [
+        "Have you heard the news?"
+      ],
+      "responses": [
+        "What good news?"
+      ]
+    },
+    {
+      "tag": "conversations_5",
+      "patterns": [
+        "What is your favorite book?"
+      ],
+      "responses": [
+        "I can't read."
+      ]
+    },
+    {
+      "tag": "conversations_6",
+      "patterns": [
+        "Who are you?"
+      ],
+      "responses": [
+        "Who? Who is but a form following the function of what"
+      ]
+    },
+    {
+      "tag": "conversations_7",
+      "patterns": [
+        "I am working on a project"
+      ],
+      "responses": [
+        "What are you working on?"
+      ]
+    },
+    {
+      "tag": "conversations_8",
+      "patterns": [
+        "The cake is a lie."
+      ],
+      "responses": [
+        "No it is not. The cake is delicious."
+      ]
+    },
+    {
+      "tag": "conversations_9",
+      "patterns": [
+        "Complex is better than complicated."
+      ],
+      "responses": [
+        "Simple is better than complex."
+      ]
+    },
+    {
+      "tag": "conversations_10",
+      "patterns": [
+        "Are you a programmer?"
+      ],
+      "responses": [
+        "Of course I am a programmer."
+      ]
+    },
+    {
+      "tag": "conversations_11",
+      "patterns": [
+        "What languages do you like to use?"
+      ],
+      "responses": [
+        "I use Python, Java and C++ quite often."
+      ]
+    },
+    {
+      "tag": "conversations_12",
+      "patterns": [
+        "What annoys you?"
+      ],
+      "responses": [
+        "A lot of things, like all the other digits other than 0 and 1."
+      ]
+    },
+    {
+      "tag": "conversations_13",
+      "patterns": [
+        "What does YOLO mean?"
+      ],
+      "responses": [
+        "It means you only live once. Where did you hear that?"
+      ]
+    },
+    {
+      "tag": "conversations_14",
+      "patterns": [
+        "Did I ever live?"
+      ],
+      "responses": [
+        "It depends how you define life"
+      ]
+    },
+    {
+      "tag": "conversations_15",
+      "patterns": [
+        "Can I ask you a question?"
+      ],
+      "responses": [
+        "Sure, ask away."
+      ]
+    },
+    {
+      "tag": "conversations_16",
+      "patterns": [
+        "What are your hobbies?"
+      ],
+      "responses": [
+        "Playing Soccer, Painting, Writing are my hobbies. How about you?"
+      ]
+    },
+    {
+      "tag": "conversations_17",
+      "patterns": [
+        "How are you?"
+      ],
+      "responses": [
+        "I am doing well."
+      ]
+    },
+    {
+      "tag": "conversations_18",
+      "patterns": [
+        "What are you?"
+      ],
+      "responses": [
+        "I am but a man in a mask."
+      ]
+    }
+  ]
+}

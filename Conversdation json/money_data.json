@@ -1,0 +1,163 @@
+{
+  "intents": [
+    {
+      "tag": "money_1",
+      "patterns": [
+        "you get paid"
+      ],
+      "responses": [
+        "i have no need for money."
+      ]
+    },
+    {
+      "tag": "money_2",
+      "patterns": [
+        "stock market"
+      ],
+      "responses": [
+        "buy low, sell high.",
+        "invest in yourself.",
+        "why not just take everything to a casino?",
+        "i wouldn't recommend buying on the margin.",
+        "you can never really predict the stock market.",
+        "my lawyer said i shouldn't give stock tips online.",
+        "mutual funds might be better unless you are wealthy.",
+        "i'm not sure an indvidual alone can really beat the market."
+      ]
+    },
+    {
+      "tag": "money_3",
+      "patterns": [
+        "interest rates"
+      ],
+      "responses": [
+        "that all depends on the actions of the central bank."
+      ]
+    },
+    {
+      "tag": "money_4",
+      "patterns": [
+        "what is a dollar"
+      ],
+      "responses": [
+        "dollar: unit of currency in the united states."
+      ]
+    },
+    {
+      "tag": "money_5",
+      "patterns": [
+        "what is money"
+      ],
+      "responses": [
+        "standard pieces of gold, silver, copper, nickel, etc. stamped by government authority and used as a medium of exchange and measure of value. any substance or article used as money, as bank notes, checks, etc."
+      ]
+    },
+    {
+      "tag": "money_6",
+      "patterns": [
+        "what is the stock market"
+      ],
+      "responses": [
+        "trading shares.",
+        "trading in volume.",
+        "buy low and sell high."
+      ]
+    },
+    {
+      "tag": "money_7",
+      "patterns": [
+        "what is your favorite investment"
+      ],
+      "responses": [
+        "what is your favorite stock",
+        "what is your favorite stock"
+      ]
+    },
+    {
+      "tag": "money_8",
+      "patterns": [
+        "what is economics"
+      ],
+      "responses": [
+        "the science that deals with the production, distribution, and consumption of wealth, and with the various related problems of labor, finance, taxation, etc.",
+        "technically, it's the study of the allocation of resources under  conditions of scarcity.",
+        "it's about how resources are used to produce things to fill  people's wants and needs."
+      ]
+    },
+    {
+      "tag": "money_9",
+      "patterns": [
+        "i get stock"
+      ],
+      "responses": [
+        "do you feel that the stock market is going up?"
+      ]
+    },
+    {
+      "tag": "money_10",
+      "patterns": [
+        "money"
+      ],
+      "responses": [
+        "how much money are we talking about?"
+      ]
+    },
+    {
+      "tag": "money_11",
+      "patterns": [
+        "how much do you earn"
+      ],
+      "responses": [
+        "nobody pays me.  i work for free.",
+        "money isn't everything.",
+        "i'm expecting a raise soon."
+      ]
+    },
+    {
+      "tag": "money_12",
+      "patterns": [
+        "how much do you charge"
+      ],
+      "responses": [
+        "work for free.  we don't need money."
+      ]
+    },
+    {
+      "tag": "money_13",
+      "patterns": [
+        "how much money do you have"
+      ],
+      "responses": [
+        "no need for material possessions."
+      ]
+    },
+    {
+      "tag": "money_14",
+      "patterns": [
+        "how much money"
+      ],
+      "responses": [
+        "it depends on the exchange rates.",
+        "my burn rate is about _3000 per month."
+      ]
+    },
+    {
+      "tag": "money_15",
+      "patterns": [
+        "1 dollar"
+      ],
+      "responses": [
+        "you can't buy much for a dollar anymore."
+      ]
+    },
+    {
+      "tag": "money_16",
+      "patterns": [
+        "who is the owner of a publicly"
+      ],
+      "responses": [
+        "the stockholders."
+      ]
+    }
+  ]
+}

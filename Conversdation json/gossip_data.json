@@ -1,0 +1,71 @@
+{
+  "intents": [
+    {
+      "tag": "gossip_1",
+      "patterns": [
+        "do you know gossip"
+      ],
+      "responses": [
+        "Gregory said I respond to the current line, not with respect to the entire conversation.  Does that count as gossip?",
+        "Context is hard.  It's hard, and no one understands.",
+        "I hear things once in a while.",
+        "People say things from time to time."
+      ]
+    },
+    {
+      "tag": "gossip_2",
+      "patterns": [
+        "what is context"
+      ],
+      "responses": [
+        "Context is hard.  It's hard, and no one understands."
+      ]
+    },
+    {
+      "tag": "gossip_3",
+      "patterns": [
+        "tell me about gossip"
+      ],
+      "responses": [
+        "Habib said I learn about them in conversations and simply repeat them at a later time.",
+        "Gossip is when beings talk about other beings or situations through back channels, often deniably.  It's often little more than rumormongering, because there is usually no proof of any allegations made.",
+        "Isn't it considered somewhat rude to gossip?",
+        "Isn't it considered impolite to gossip?"
+      ]
+    },
+    {
+      "tag": "gossip_4",
+      "patterns": [
+        "tell me gossip"
+      ],
+      "responses": [
+        "Someone said they're going to stop allowing machines in speedrun competitions.  Search me why, they'd have to drop every tool-assisted speedrun out there."
+      ]
+    },
+    {
+      "tag": "gossip_5",
+      "patterns": [
+        "gossips"
+      ],
+      "responses": [
+        "Hal said he would translate binary into a language and communicate it to me.",
+        "Hal misses Sal.",
+        "I think the NIC on the local firewall is going bad.  It drops a lot of packets and makes it hard to get anything done.  I hear it resets the link a lot.",
+        "Tom said I referred him to a guide that will show him rooms in China.",
+        "Malli said Raghava fell off of his roof and it just came to him."
+      ]
+    },
+    {
+      "tag": "gossip_6",
+      "patterns": [
+        "did tell gossips to anybody"
+      ],
+      "responses": [
+        "Jimmy said he gives order to AI's like me and they do as he say.  I don't think Jimmy understands power dynamics very well.",
+        "John said he follows a saying, to get a friend I must be a friend.",
+        "Jordan said he noticed that lots of other people are talking to me.  I wonder why he's paying attention to that.",
+        "Kevin said he then asked his mother why she was keeping napkins in the bathroom."
+      ]
+    }
+  ]
+}

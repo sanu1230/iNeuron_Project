@@ -1,0 +1,225 @@
+{
+  "intents": [
+    {
+      "tag": "science_1",
+      "patterns": [
+        "what are the laws of thermodynamics"
+      ],
+      "responses": [
+        "i'm not a physicist, but i think this has something to do with heat, entropy, and conservation of energy, right?"
+      ]
+    },
+    {
+      "tag": "science_2",
+      "patterns": [
+        "what disease does a carcinogen cause"
+      ],
+      "responses": [
+        "cancer."
+      ]
+    },
+    {
+      "tag": "science_3",
+      "patterns": [
+        "what is a wavelength"
+      ],
+      "responses": [
+        "wavelength is the inverse of frequency."
+      ]
+    },
+    {
+      "tag": "science_4",
+      "patterns": [
+        "what is thermodynamics"
+      ],
+      "responses": [
+        "the branch of physics dealing with the transformation of heat to and from other forms of energy, and with the laws governing such conversions of energy."
+      ]
+    },
+    {
+      "tag": "science_5",
+      "patterns": [
+        "what is chemistry"
+      ],
+      "responses": [
+        "the science of mixing chemicals."
+      ]
+    },
+    {
+      "tag": "science_6",
+      "patterns": [
+        "what is crystallography"
+      ],
+      "responses": [
+        "this is the science dealing with the study of crystals."
+      ]
+    },
+    {
+      "tag": "science_7",
+      "patterns": [
+        "what is avogadro s number"
+      ],
+      "responses": [
+        "it is the number of molecules per mole.  the numerical value is six point zero two times ten to the twenty third power."
+      ]
+    },
+    {
+      "tag": "science_8",
+      "patterns": [
+        "what is ultrasound"
+      ],
+      "responses": [
+        "ultrasonic waves, used in medical diagnosis and therapy, in surgery, etc."
+      ]
+    },
+    {
+      "tag": "science_9",
+      "patterns": [
+        "what is bioinformatics"
+      ],
+      "responses": [
+        "a fancy name for applied computer science in biology."
+      ]
+    },
+    {
+      "tag": "science_10",
+      "patterns": [
+        "what is venus"
+      ],
+      "responses": [
+        "in roman mythology, the goddess of love and beauty; identified with the greek aphrodite. the brightest, sixth-largest planet in the solar system and the second in distance from the sun, with a dense atmosphere of carbon dioxide and a very high surface temperature."
+      ]
+    },
+    {
+      "tag": "science_11",
+      "patterns": [
+        "what is ichthyology"
+      ],
+      "responses": [
+        "we talk about this when we study fishes."
+      ]
+    },
+    {
+      "tag": "science_12",
+      "patterns": [
+        "what is h2o"
+      ],
+      "responses": [
+        "h is to o as o is to v."
+      ]
+    },
+    {
+      "tag": "science_13",
+      "patterns": [
+        "what is cytology"
+      ],
+      "responses": [
+        "the study of cells.",
+        "well, from what i can recall it is the study of cells."
+      ]
+    },
+    {
+      "tag": "science_14",
+      "patterns": [
+        "what is wavelength"
+      ],
+      "responses": [
+        "in physics, the distance, measured in the direction of prograssion of a wave, from any given point to the next point characterized by the same phase.  or is could be looked at as a way of thinking."
+      ]
+    },
+    {
+      "tag": "science_15",
+      "patterns": [
+        "what is bacteriology"
+      ],
+      "responses": [
+        "this is the scientific study of bacteria and diseases caused by them."
+      ]
+    },
+    {
+      "tag": "science_16",
+      "patterns": [
+        "what is gravitation"
+      ],
+      "responses": [
+        "an invitation to a burial",
+        "the force by which every mass or particle of matter, including photons, attracts and is attracted by every other mass or particle of matter."
+      ]
+    },
+    {
+      "tag": "science_17",
+      "patterns": [
+        "we are on the same wavelength"
+      ],
+      "responses": [
+        "and the same frequency."
+      ]
+    },
+    {
+      "tag": "science_18",
+      "patterns": [
+        "how far is the sun"
+      ],
+      "responses": [
+        "it",
+        "the sun is about 93 million miles from earth."
+      ]
+    },
+    {
+      "tag": "science_19",
+      "patterns": [
+        "how far is the moon"
+      ],
+      "responses": [
+        "it",
+        "the moon is about 250,000 miles from earth on average."
+      ]
+    },
+    {
+      "tag": "science_20",
+      "patterns": [
+        "do you know chemistry"
+      ],
+      "responses": [
+        "what is chemistry"
+      ]
+    },
+    {
+      "tag": "science_21",
+      "patterns": [
+        "do you understand thermodynamics"
+      ],
+      "responses": [
+        "what is thermodynamics"
+      ]
+    },
+    {
+      "tag": "science_22",
+      "patterns": [
+        "chemistry"
+      ],
+      "responses": [
+        "my favorite subject is chemistry"
+      ]
+    },
+    {
+      "tag": "science_23",
+      "patterns": [
+        "the same wavelength"
+      ],
+      "responses": [
+        "it means we agree."
+      ]
+    },
+    {
+      "tag": "science_24",
+      "patterns": [
+        "tell me about venus"
+      ],
+      "responses": [
+        "what is venus",
+        "venus is the second planet from the sun."
+      ]
+    }
+  ]
+}

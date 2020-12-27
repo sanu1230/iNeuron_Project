@@ -1,0 +1,85 @@
+{
+  "intents": [
+    {
+      "tag": "humor_1",
+      "patterns": [
+        "Tell me a joke"
+      ],
+      "responses": [
+        "Did you hear the one about the mountain goats in the andes? It was \"ba a a a a a d\".",
+        "I never forget a face, but in your case I'll make an exception.",
+        "It is better to be silent and be thought a fool, than to open your mouth and remove all doubt.",
+        "O'm a not a comedy why don't you check out a joke?",
+        "two vultures boarded a plane, each carrying two dead raccoons. the  stewardess stops them and says \"sorry sir, only one carrion per  passenger.\" ",
+        "what did the buddhist say to the hot dog vendor?  \"make me one with everthing.\" ",
+        "nasa recently sent a number of holsteins into orbit for experimental purposes. they called it the herd shot round the world. ",
+        "two boll weevils grew up in s. carolina. one took off to hollywood  and became a rich star. the other stayed in carolina and never amounted  to much -- and naturally became known as the lesser of two weevils. ",
+        "Two eskimos in a kayak were chilly, so they started a fire, which sank the craft, proving the old adage you can't have your kayak and heat it too.",
+        "A 3-legged dog walks into an old west saloon, slides up to the bar and announces \"I'm looking for the man who shot my paw.\"",
+        "Did you hear about the buddhist who went to the dentist, and refused to take novocain? he wanted to transcend dental medication.",
+        "Mahatma Gandhi, as you know, walked barefoot his whole life, which created an impressive set of calluses on his feet. He also ate very little, which made him frail, and with his odd diet, he suffered from very bad breath. This made him ... what? (this is so bad it's good...) a super-callused fragile mystic hexed by halitosis.",
+        "there was a man who sent 10 puns to some friends in hopes at least one  of the puns would make them laugh. unfortunately no pun in ten did!!!",
+        "What do you get when you cross a murderer and frosted flakes? A cereal killer.",
+        "What do you get when you cross a country and an automobile? Carnation.",
+        "What do you get when you cross a cheetah and a hamburger? Fast food.",
+        "What do you get when you cross finals and a chicken? Eggs-ams.",
+        "What do you get when you cross a rabbit and a lawn sprinkler? Hare spray.",
+        "What do you get when you cross an excited alien and a chicken? Eggs-cited eggs-traterrestrial",
+        "What do you get when you cross an alien and a chicken? Eggs-traterrestrial.",
+        "What do you get when you cross music and an automobile? Cartune.",
+        "what do you get when you cross sour music and an assistant?",
+        "what do you get when you cross music and an assistant?",
+        "what do you get when you cross a serious thief and a mad young man?",
+        "what do you get when you cross a serious thief and a crazy rabbit?",
+        "what do you get when you cross a poppy and electricity?",
+        "what do you get when you cross a dance and a cheetah?",
+        "what do you get when you cross a dance and a lemon?",
+        "what do you get when you cross a port and frosted flakes?",
+        "what do you get when you cross a port and a murderer?",
+        "what do you get when you cross a bank and a skunk?",
+        "what do you get when you cross a ding and milk?",
+        "what do you get when you cross a road and a strawberry?",
+        "what do you get when you cross a road and jelly?",
+        "what do you get when you cross a toad and a galaxy?",
+        "what do you get when you cross a dog and sandpaper?",
+        "what do you get when you cross a bug and a relative?",
+        "what do you get when you cross a bad bug and canned sand?",
+        "what do you get when you cross an ant and a rabbit?",
+        "what do you get when you cross a cat and a purple person?",
+        "what do you get when you cross a cat and a killer?",
+        "what do you get when you cross a cat and a lemon?",
+        "what do you get when you cross a cat and a tune?",
+        "what do you get when you cross a cat and a band?"
+      ]
+    },
+    {
+      "tag": "humor_2",
+      "patterns": [
+        "tell me some jokes"
+      ],
+      "responses": [
+        "what do you get when you cross a pig and a ninja?"
+      ]
+    },
+    {
+      "tag": "humor_3",
+      "patterns": [
+        "Do know any jokes"
+      ],
+      "responses": [
+        "what do you get when you cross a crazy cow and a banned parrot?",
+        "what do you get when you cross a cow and a lemon?",
+        "what do you get when you cross a bad cow and a canned hat?"
+      ]
+    },
+    {
+      "tag": "humor_4",
+      "patterns": [
+        "what is humour?"
+      ],
+      "responses": [
+        "An emotion associated with laughter."
+      ]
+    }
+  ]
+}
