@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        </script>
+        <title>Flask Chatbot</title>
+    </head>
+    <body>
+        <h1 align='center'><b>Welcome..!!</b></h1>
+        <p align="center"><img src="https://raw.githubusercontent.com/patelkelvin/Python-BOT/master/templates/favicon.ico" alt="Python-BOT" height="210" width="220"></p>
+        <div>
+            <div class='boxed'>
+                <div>
+                    <div id="chatbox">
+                        <p class="botText"><span>Hi! I'm AssistBot.</span></p>
+                        <p class="botText"><span>How may I assit you.</span></p>
+                    </div>
+                    <div>
+                        <div align='center' id ="userInput">
+                        <input id ="textInput" type="text" name="msg" placeholder="Message" />
+                        <input id ="buttonInput" type="submit" value="Send" />
+                     </div>
+                </div>
+                <script>
+                    function getBotResponse() {
+                        let rawText = $("#textInput").val();
+                        let userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+                        $(".chatbox").append(userHtml);
+                        document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+                        $.get("/get", { msg: rawText }).done(function(data) {
+                            let botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                            $(".chatbox").append(botHtml);
+                            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+                          });
+                         }  
+
+                        $("#textInput").keyup(function(a) {
+                            if(a.keyCode == 13) {
+                                getBotResponse();
+                                document.getElementById("textInput").value = "";
+
+                            }
+                        });
+                        $("#buttonInput").click(function() {
+                            if (document.getElementById("textInput").value != "") {
+                                getBotResponse();
+                                document.getElementById("textInput").value = "";
+                            }
+                          })
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
+
