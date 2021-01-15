@@ -18,9 +18,9 @@ from datetime import datetime
 import random
 from time import sleep
 import pymongo
-import pymysql
-import func
-import eligibility
+# import pymysql
+# import func
+# import eligibility
 from datetime import timedelta
 
 from flask import session, app
