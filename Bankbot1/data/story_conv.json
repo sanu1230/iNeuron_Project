@@ -1,0 +1,12 @@
+{
+  "pl_conv_yes": {
+    "want_personal_loan": "personal_loan_yes",
+    "personal_loan_yes": "user_name",
+    "user_name": "dob",
+    "dob": "net_income",
+    "net_income": "total_expenses",
+    "total_expenses": "company_name",
+    "company_name": "total_experience",
+    "total_experience": "ploan_apply_yes"
+  }
+}

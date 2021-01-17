@@ -1,0 +1,24 @@
+# run with cmd/terminal pip install -r requirements.txt
+
+nltk~=3.5
+numpy~=1.18.5
+tensorflow
+keras~=2.4.3
+spacy
+pipwin
+pyttsx3~=2.90
+SpeechRecognition
+selenium
+pymongo~=3.11.1
+nltk.
+sklearn~=0.0
+flask
+flask_cors
+threading
+pyaudio
+
+# pipwin install pyaudio
+pandas~=1.1.4
+scikit-learn~=0.24.0
+
+# pip install -Iv pyttsx3==2.6 -U
