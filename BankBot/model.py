@@ -36,11 +36,11 @@ def word_cleaning(intents_json):
     words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
     words = sorted(list(set(words)))
     classes = sorted(list(set(classes)))
-    # print(len(documents), "documents")
-    # print(len(classes), "classes", classes)
-    # print(len(words), "unique lemmatized words", words)
-    pickle.dump(words, open('words.pkl', 'wb'))
-    pickle.dump(classes, open('classes.pkl', 'wb'))
+    print(len(documents), "documents")
+    print(len(classes), "classes", classes)
+    print(len(words), "unique lemmatized words", words)
+    pickle.dump(words, open('api/model/words.pkl', 'wb'))
+    pickle.dump(classes, open('api/model/classes.pkl', 'wb'))
     return documents, classes, words
 
 
@@ -83,9 +83,9 @@ def model_creation(train_x, train_y):
     model.add(Dropout(0.5))
     model.add(Dense(len(train_y[0]), activation='softmax'))
     # Compile model. Stochastic gradient descent with Nesterov accelerated gradient gives good results for this model
-    # sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+    sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
     rms = RMSprop(learning_rate=0.001, rho=0.9, momentum=0.9, epsilon=1e-06, centered=False, name="RMSprop")
-    model.compile(loss='categorical_crossentropy', optimizer=rms, metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
     # fitting and saving the model
     hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
     model.save('chatbot_model.h5', hist)

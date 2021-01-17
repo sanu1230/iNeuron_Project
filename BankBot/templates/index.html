@@ -72,7 +72,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("Background_Image.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("static/Background_Image.png");
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
@@ -336,7 +336,7 @@ body, html {
   width: fit-content;
   margin: 0 auto;
 }
-.chat .messages .message {
+.chat .messages .Bot {
   box-sizing: border-box;
   padding: 0.5rem 1rem;
   margin: 1rem;
@@ -349,13 +349,19 @@ body, html {
   max-width: 66%;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.075), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.1);
 }
-.chat .messages .message.parker {
+.chat .messages .You {
+  padding: 0.5rem 1rem;
   margin: 1rem 1rem 1rem auto;
   border-radius: 1.125rem 1.125rem 0 1.125rem;
+  min-height: 2.25rem;
   background: #333;
   color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 66%;
 }
-.chat .messages .message .typing {
+.chat .messages .Bot .typing {
   display: inline-block;
   width: 0.8rem;
   height: 0.8rem;
@@ -364,15 +370,15 @@ body, html {
   background: #ccc;
   border-radius: 50%;
 }
-.chat .messages .message .typing.typing-1 {
+.chat .messages .Bot .typing.typing-1 {
   -webkit-animation: typing 3s infinite;
           animation: typing 3s infinite;
 }
-.chat .messages .message .typing.typing-2 {
+.chat .messages .Bot .typing.typing-2 {
   -webkit-animation: typing 3s 250ms infinite;
           animation: typing 3s 250ms infinite;
 }
-.chat .messages .message .typing.typing-3 {
+.chat .messages .Bot .typing.typing-3 {
   -webkit-animation: typing 3s 500ms infinite;
           animation: typing 3s 500ms infinite;
 }
@@ -441,7 +447,7 @@ body, html {
   }
 }
 .pic.bot {
-  background-image: url("images.png");
+  background-image: url("/static/images.png");
 }
 
 .pic.banner {
@@ -463,35 +469,32 @@ body, html {
 
 <script type="text/javascript">
 	   	  function speakMike(){
-	   	   var Ks = '{{killSession}}'
+	   	  var Ks = '{{killSession}}'
 
    	      if (Ks=="no") {
 
-		  let userId = '{{userID}}';
-	   	  let msg = '{{botResp}}';
+            let userId = '{{userID}}';
+            let msg = '{{botResp}}';
 
+            let speech = new SpeechSynthesisUtterance();
+            let voice = window.speechSynthesis.getVoices()[3];
+            speech.lang = "en-US";
+            speech.voice = voice;
+            speech.text = msg;
+            speech.volume = 1;
+            speech.rate = 2;
+            speech.pitch = 1;
 
-                let speech = new SpeechSynthesisUtterance();
-                let voice = window.speechSynthesis.getVoices()[3];
-                speech.lang = "en-US";
-				speech.voice = voice;
-                speech.text = msg;
-                speech.volume = 1;
-                speech.rate = 2;
-                speech.pitch = 1;
+            speechSynthesis.speak(speech);
 
-                speechSynthesis.speak(speech);
-
-               speech.onend = () => checkMike();
-           }
-
-           if (Ks=="yes") {
+            speech.onend = () => checkMike();
+           } else {
            		$(':button').prop('disabled', true);
-           		 $(document).trigger('idle:stop');
+           		$(document).trigger('idle:stop');
 
            }
 
-                }
+}
 
 function checkMike(){
    	  var ms = '{{mike_status}}'
@@ -503,39 +506,40 @@ function checkMike(){
 
    	  };
 
-   	 </script>
+</script>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+
 <script>
 	// -------- THIS IS THE JS SOURCE CODE OF Jquery.Idle -->
 !function(n){"use strict";n.fn.idle=function(e){var t,i,o={idle:6e4,events:"keydown",onIdle:function(){},onActive:function(){},onHide:function(){},onShow:function(){},keepTracking:!0,startAtIdle:!1,recurIdleCall:!1},c=e.startAtIdle||!1,d=!e.startAtIdle||!0,l=n.extend({},o,e),u=null;return n(this).on("idle:stop",{},function(){n(this).off(l.events),l.keepTracking=!1,t(u,l)}),t=function(n,e){return c&&(e.onActive.call(),c=!1),clearTimeout(n),e.keepTracking?i(e):void 0},i=function(n){var e,t=n.recurIdleCall?setInterval:setTimeout;return e=t(function(){c=!0,n.onIdle.call()},n.idle)},this.each(function(){u=i(l),n(this).on(l.events,function(){u=t(u,l)}),(l.onShow||l.onHide)&&n(document).on("visibilitychange webkitvisibilitychange mozvisibilitychange msvisibilitychange",function(){document.hidden||document.webkitHidden||document.mozHidden||document.msHidden?d&&(d=!1,l.onHide.call()):d||(d=!0,l.onShow.call())})})}}(jQuery);
 
 // <-- THIS IS THE JS SOURCE CODE OF Jquery.Idle --------
 
-!function(n){"use strict";n.fn.idle=function(e){var t,i,o={idle:6e4,events:"keydown",onIdle:function(){},onActive:function(){},onHide:function(){},onShow:function(){},keepTracking:!0,startAtIdle:!1,recurIdleCall:!1},c=e.startAtIdle||!1,d=!e.startAtIdle||!0,l=n.extend({},o,e),u=null;return n(this).on("idle:stop",{},function(){n(this).off(l.events),l.keepTracking=!1,t(u,l)}),t=function(n,e){return c&&(e.onActive.call(),c=!1),clearTimeout(n),e.keepTracking?i(e):void 0},i=function(n){var e,t=n.recurIdleCall?setInterval:setTimeout;return e=t(function(){c=!0,n.onIdle.call()},n.idle)},this.each(function(){u=i(l),n(this).on(l.events,function(){u=t(u,l)}),(l.onShow||l.onHide)&&n(document).on("visibilitychange webkitvisibilitychange mozvisibilitychange msvisibilitychange",function(){document.hidden||document.webkitHidden||document.mozHidden||document.msHidden?d&&(d=!1,l.onHide.call()):d||(d=!0,l.onShow.call())})})}}(jQuery);
 
-// <-- THIS IS THE JS SOURCE CODE OF Jquery.Idle --------
 
 $(document).idle({
+  idle: 40000,
+  events:'mousemove keydown mousedown touchstart',
   onIdle: function(){
     alert('You did nothing for 30 seconds');
     let msgEnd ="Since there is no response from your end, I will have to end this conversation now. I appreciate your time and patients. Please text or speak to me if you need my help. Goodbye.";
+    let speechEnd = new SpeechSynthesisUtterance();
+    speechEnd.lang = "en-US";
+    speechEnd.text = msgEnd;
+    speechEnd.volume = 1;
+    speechEnd.rate = 2;
+    speechEnd.pitch = 1;
+    speechSynthesis.speak(speechEnd);x`
+    speechEnd.onend = () => endSpeechInput(event);
 
-                let speechEnd = new SpeechSynthesisUtterance();
-                speechEnd.lang = "en-US";
-                speechEnd.text = msgEnd;
-                speechEnd.volume = 1;
-                speechEnd.rate = 2;
-                speechEnd.pitch = 1;
-                speechSynthesis.speak(speechEnd);
-     speechEnd.onend = () => endSpeechInput(event);
-
-  },
-  idle: 40000
+  }
 })
 
 
 </script>
 </head>
-<body onload="speakMike()">
+<body onload="speakMike(); scrollToBottom();">
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -572,17 +576,19 @@ $(document).idle({
             <div class="contact bar">
                 <div class="pic bot"></div>
                 <div class="name">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeChat()">X</a>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeForm()">X</a>
                     <h4>AssistBot &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
                 </div>
                 <div class="seen">Online</div>
             </div>
 
             <div class="messages" id="chat">
-              {% for string in user_input %}
-                <div class="{{key}}">
-                {{string}}
-                </div>
+              {% for item in user_input %}
+                {% for key, value in item %}
+                    <div class="{{key}}">
+                        {{value}}
+                    </div>
+                {% endfor %}
               {% endfor %}
             </div>
 
@@ -592,45 +598,60 @@ $(document).idle({
                     <input type="hidden" name="mic_status" class="form-control" value="off">
                     <input type="hidden" name="userID" class="form-control" value='{{userID}}'>
                     <input type="hidden" name="killSession" class="form-control" value='{{killSession}}'>
-                    <button type="submit" class="Submitbtn">Send</button>
-                    <button type="button"  onclick="startSpeech(event)">Speak</button>
+                    <button type="submit" class="Submitbtn" onclick="scrollToBottom()">Send</button>
+                    <button type="button" id="speak" value="Speak">Speak</button>
                 </div>
             </div>
-
-            <form action="/process" method="POST">
-                <input type="hidden" id="q" name="user_input" >
-                <input type="hidden" name="mic_status" class="form-control" value="on">
-                <input type="hidden" name="userID" class="form-control" value='{{userID}}'>
-                <input type="hidden" id="a" name="killSession" class="form-control" value='{{killSession}}'>
-            </form>
         </div>
+    </form>
+    <form action="/process" method="POST">
+        <input type="hidden" id="q" name="user_input" >
+        <input type="hidden" name="mic_status" class="form-control" value="on">
+        <input type="hidden" name="userID" class="form-control" value='{{userID}}'>
+        <input type="hidden" id="a" name="killSession" class="form-control" value='{{killSession}}'>
     </form>
 </div>
 
 <script type="text/javascript">
 
 
-      function startSpeech(event) {
-        var recognition = new webkitSpeechRecognition();
+$(function () {
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    var final_transcript = '';
+    recognition.lang = 'en-US';
+    recognition.onresult = function(event) {
+        var interim_transcript = '';
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+            final_transcript += event.results[i][0].transcript;
+            } else {
+                interim_transcript += event.results[i][0].transcript;
+                }
+            };
+            handleSpeechInput(event);
+        };
 
-        recognition.continuous = true;
-        final_transcript = '';
-        recognition.lang = 'en-US';
-		recognition.start();
-		recognition.onresult = function(event) {
-		  var interim_transcript = '';
-		  for (var i = event.resultIndex; i < event.results.length; ++i) {
-			if (event.results[i].isFinal) {
-			  final_transcript += event.results[i][0].transcript;
-			} else {
-			  interim_transcript += event.results[i][0].transcript;
-			}
-		  };
-		  handleSpeechInput(event);
+        var elem = document.getElementById("speak");
+        if (elem.value=="Speak") {
+            $('#speak').click(function () {
+                elem.value = "Stop";
+                recognition.start();
+                alert('button Stop');
+                });
+            }
+        else {
+            $('#speak').click(function () {
+                elem.value = "Speak";
+                recognition.stop();
+                alert('button Stop');
+                });
+            }
+    });
 
-		};
 
-      }
+
       	function handleSpeechInput(event) {
         var q = document.getElementById("q");
         q.value = final_transcript;
@@ -663,10 +684,6 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
 }
-function closeChat() {
-  document.getElementById("myForm").style.display = "none";
-  document.getElementById("main").style.marginLeft= "0";
-}
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -674,10 +691,12 @@ function openForm() {
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+  document.getElementById("main").style.marginLeft= "0";
 }
-<!--var chat = document.getElementById("chat");-->
-<!--chat.scrollTop = chat.scrollHeight - chat.clientHeight;-->
-$('chat').animate({ scrollTop: $(chat.scrollHeight).height() }, 1200);
+function scrollToBottom() {
+    var chat = document.getElementById("chat");
+    chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+}
 
 </script>
 

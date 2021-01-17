@@ -59,7 +59,7 @@ def apply_pl(user):
     collection.insert_one(record)
     print("Record 1", record)
     response = "Your personal loan application has been submitted. " \
-               "Your application number is {}." \
+               "Your application number is {}. " \
                "The information has been sent to your email address {}. " \
                "Is there anything else i may help you with.".format(applicationnum, email[0])
 

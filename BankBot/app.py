@@ -54,19 +54,18 @@ StartTime = 0
 user = []
 bot = []
 
-
+result = []
 
 # --- User Interface ---
 @app.route('/')
 def home():
     global userID
     userID = str(random.randint(1, 198))
-    intro=[]
-    intro.append("Bot : Hi, I am AssistBot. Your customer service agent. How may I help you?")
+    result.append([('',''),("Bot",  "Hi, I am AssistBot. Your customer service agent. How may I help you?")])
     mike_status="no"
-    resp= "Hi, I am AssistBot. Your customer service agent. How may I help you?"
+    resp = "Hi, I am AssistBot. Your customer service agent. How may I help you?"
     killSession="no"
-    return render_template('index.html', user_input=intro, mike_status=mike_status, botResp=resp, userID=userID, killSession=killSession)
+    return render_template('index.html', user_input=result, mike_status=mike_status, botResp=resp, userID=userID, killSession=killSession)
 
 
 # @app.route("/predict", methods=['POST'])
@@ -85,26 +84,27 @@ def process():  ##called when user input is given and submit button is pressed
     global userID, user
     print("Process Called")
     query = request.form["user_input"]
-    print("user_input", query)
+    print("user_input : ", query)
     user.append(query)
     if query == "TimeOut":
         resp = bot_insert_sql(query)
     else:
         resp = insert_sql(query)
         bot.append(resp)
-        print("Bot resp : ", resp)
+        print("Bot resp3 : ", resp)
 
-    mike_status =  "yes" if request.form["mic_status"] == "on" else "no"
+    result.append([("You", query), ("Bot", resp)])
+    mike_status = "yes" if request.form["mic_status"] == "on" else "no"
     print("mike_status : ",mike_status,request.form["mic_status"])
     userID = request.form["userID"]
     killSession = request.form["killSession"]
     print("killSession : ",killSession)
-    conv_list = user_list()
+    # conv_list = user_list()
     if killSession == "yes":
         val = {'UserId': userID}
         collection.remove(val)
-        pushconv_to_mongodb(userID, conv_list)
-    return render_template("index.html", user_input=conv_list, mike_status=mike_status,botResp=resp,userID=userID,killSession=killSession)
+        pushconv_to_mongodb(userID, result)
+    return render_template("index.html", user_input=result, mike_status=mike_status,botResp=resp,userID=userID,killSession=killSession)
 
 
 
@@ -129,7 +129,8 @@ def insert_sql(query):  ##inserting user inputs, bot outputs and time into datab
     global s, userID, c
     current_time = (c.hour * 60 * 60) + (c.minute * 60) + c.second
     s = s + 1
-    resp = str(enter_proper_response(query))
+    resp = enter_proper_response(query)
+    # print("Bot_resp2: ", resp)
     try:
         record = {'UserId': userID,
                   'UserInput': query,
@@ -146,13 +147,10 @@ def user_list():  ##extracting user inputs from user_bot_chat database
     global userID
     val = { 'UserId': userID }
     sql = collection.find(val)
-    print("sql",sql)
-    r = []
-    r.append("Bot : Hi, I am AssistBot. Your customer service agent. How may I help you?")
+    print("sql", sql)
     for document in sql:
-        r.append("You : "+ str(document['UserInput']))
-        r.append("Bot : "+ document['BotInput'])
-    return r
+        result.append([("You", document['UserInput']), ("Bot",  document['BotInput'])])
+    return result
 
 
 def getResponse(query, ints, intents, cTag):
@@ -166,23 +164,18 @@ def enter_proper_response(query):
     cTag = 'context'
     if query != '':
         ints = predict_class(query, words, model)
-        end_tag = ["goodbye", "anything_else_no"]
-        if ints[0]['intent'] in end_tag:
-            tag = "goodbye"
-            print("End tag: ", tag)
-            response = contextResponse(query, tag, intents, cTag)
+        response = getResponse(query, ints, intents, cTag)
+        if response == "calc_eli":
+            response = eligibility_response(user)
+        elif response == 'apply_pl':
+            response = apply_pl(user)
         else:
-            response = getResponse(query, ints, intents, cTag)
-            if response == "calc_eli":
-                response = eligibility_response(user)
-            elif response == 'apply_pl':
-                response = apply_pl(user)
-            else:
-                response = response
-        return response
+            response = response
     else:
         response = "Please text or say your query. I will be glad to help you."
         return response
+    # print("Bot_resp1 : ", response)
+    return response
 
 
 # --- Write session Convo to database

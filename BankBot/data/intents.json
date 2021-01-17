@@ -49,39 +49,18 @@
       "tag": "defaultfallback",
       "patterns": [],
       "responses": [
-        "I didn't get that. Can you say it again?",
+        "I didnt get that. Can you say it again?",
         "I missed what you said. What was that?",
         "Sorry, could you say that again?",
         "Sorry, can you say that again?",
         "Can you say that again?",
-        "Sorry, I didn't get that. Can you rephrase?",
+        "Sorry, I didnt get that. Can you rephrase?",
         "Sorry, what was that?",
         "One more time?",
         "What was that?",
         "Say that one more time?",
-        "I didn't get that. Can you repeat?",
+        "I didnt get that. Can you repeat?",
         "I missed that, say that again?"
-      ]
-    },
-    {
-      "tag": "help",
-      "patterns": [
-        "How can you help me?",
-        "What can you do?",
-        "What help can you provide?",
-        "How helpful can you be?",
-        "What all support are offered?",
-        "Can you help me?",
-        "I need help with my loan account",
-        "Could you help me",
-        "I need assistance on my account",
-        "I need help on my account"
-      ],
-      "responses": [
-        "Of course. I'd be happy to. May I know your query",
-        "Sure, I'd be happy to. You can tell me what your query is?",
-        "Sure, How may I help you?",
-        "Of course, It would be my pleasure. How may I help you?"
       ]
     },
     {
@@ -102,26 +81,6 @@
       "responses": [
         "Thanks for chatting with me. I hope your query is solved. Goodbye.",
         "It was nice to chat with you. Please text me if you need help. Goodbye."
-      ]
-    },
-    {
-      "tag": "want_personal_loan",
-      "patterns": [
-        "I need a personal loan",
-        "personal loan",
-        "need loan",
-        "I need a loan",
-        "Can i get a personal loan",
-        "Hi, I want personal loan",
-        "Am I eligible for a loan",
-        "Hi, I need a loan",
-        "I would like to apply for personal loan"
-      ],
-      "responses": [
-        "Thank you for showing interest in our 'Personal loan' product. Can i ask few question to check your loan eligibility."
-      ],
-      "context_set": [
-        "personal_loan"
       ]
     },
     {
@@ -152,11 +111,10 @@
         "I am looking for a top-up loan",
         "I need a top up loan",
         "Am I eligible for more loan",
-        "I need more loan",
         "Can I get a top up"
       ],
       "responses": [
-        "Sure, let me check if you are eligible for a top-up loan."
+        "Sure, let me check if you are eligible for a top-up loan. May I have your Customer Id. (Please say or type word customer id and then the id number.)"
       ],
       "context_set": [
         "top_up"
@@ -197,10 +155,30 @@
       ]
     },
     {
+      "tag": "want_personal_loan",
+      "patterns": [
+        "I need a personal loan",
+        "personal loan",
+        "need loan",
+        "I need a loan",
+        "Can i get a personal loan",
+        "Hi, I want personal loan",
+        "Am I eligible for a loan",
+        "Hi, I need a loan",
+        "I would like to apply for personal loan"
+      ],
+      "responses": [
+        "Thank you for showing interest in our Personal Loan product. Can i ask few question to check your loan eligibility."
+      ],
+      "context_set": [
+        "personal_loan"
+      ]
+    },
+    {
       "tag": "personal_loan_yes",
       "patterns": [],
       "responses": [
-        "May I know your complete name?\n(please type or say 'my name is' and then your complete name.)"
+        "May I know your complete name? (please type or say -my name is- and then your complete name.)"
       ],
       "context_set": [
         "personal_loan_apply"
@@ -210,7 +188,7 @@
       "tag": "personal_loan_no",
       "patterns": [],
       "responses": [
-        "Is there anything else I may help you with"
+        "Alright. Is there anything else I may help you with?"
       ],
       "context_set": [
         "anything_else"
@@ -220,29 +198,21 @@
       "tag": "anything_else_yes",
       "patterns": [],
       "responses": [
-        "May I know your query?"
+        "Sure. May I know your query?"
       ],
       "context_set": [
         ""
       ]
     },
     {
-      "tag": "anything_else_no",
-      "patterns": [],
-      "responses": [
-        "Thanks for chatting with me. I hope your query is solved. Goodbye.",
-        "It was nice to chat with you. Please text me if you need help. Goodbye."
-      ]
-    },
-    {
       "tag": "user_name",
       "patterns": [
-        "My name is",
         "name is",
+        "my name is ",
         "i am"
       ],
       "responses": [
-        "May I know your date of birth? (type or say 'date is' and then the date in dd-mm-yyyy format)"
+        "May I know your date of birth? (type or say -date is- and then the date in dd-mm-yyyy format)"
       ],
       "context_filter": [
         "personal_loan_apply"
@@ -253,12 +223,12 @@
       "tag": "dob",
       "patterns": [
         "date is 01/01/2000",
-        "My date of birth is 15/05/1980",
+        "date of birth is 15/05/1980",
         "date is 19/05/1989",
         "date is 25/12/1999"
       ],
       "responses": [
-        "May I know  your net income?\n(type or say 'Net income' and then the digits)"
+        "May I know  your net income? (type or say -Net income- and then the digits)"
       ],
       "context_filter": [
         "personal_loan_apply"
@@ -270,12 +240,12 @@
       "patterns": [
         "Net income 35500",
         "Net income 25000",
-        "My net income is 30000",
+        "net income is 30000",
         "Net income 30000 per month",
         "I earn Net income 40000 per month"
       ],
       "responses": [
-        "May I know your total expenses including all your monthly installments.\n (type or say 'Total Expenses' and then the digits)"
+        "May I know your total expenses including all your monthly installments. (type or say -Total Expenses- and then the digits)"
       ],
       "context_filter": [
         "personal_loan_apply"
@@ -292,7 +262,7 @@
         "Total Expenses 40000 per month"
       ],
       "responses": [
-        "May I know your company name or business name that you work for or own ?(please type or say 'company name or business name' and then the company name)"
+        "May I know your company name or business name that you work for or own ?(please type or say -company name or business name- and then the company name)"
       ],
       "context_filter": [
         "personal_loan_apply"
@@ -302,14 +272,14 @@
     {
       "tag": "company_name",
       "patterns": [
-        "My company name is HDFC bank",
-        "Company name is Ambuja Cement pvt ltd",
-        "My company name is Apple Inc",
-        "My business name is Flave pvt ltd",
-        "My business name is Bird Ltd"
+        "company name is HDFC bank",
+        "company name is Ambuja Cement pvt ltd",
+        "company name is Apple Inc",
+        "business name is Flave pvt ltd",
+        "business name is Bird Ltd"
       ],
       "responses": [
-        "May I know your total experience ?(please type or say 'total experience is' and then the experience in years)"
+        "May I know your total experience ?(please type or say -total experience is- and then the experience in years)"
       ],
       "context_filter": [
         "personal_loan_apply"
@@ -328,8 +298,57 @@
       "responses": [
         "calc_eli"
       ],
+      "context_set": [
+        "ploan_apply"
+      ],
       "context_filter": [
         "personal_loan_apply"
+      ],
+      "recheck": ["yes"]
+    },
+    {
+      "tag": "ploan_apply_yes",
+      "patterns": [],
+      "responses": [
+        "In order to further proceed with the application, I will need you contact information. Please type your phone number and your email address. Please type your phone number first and then your email address"
+      ],
+      "context_set": [
+        "ploan_apply_contact"
+      ],
+      "context_filter": [
+        "ploan_apply"
+      ],
+      "recheck": ["yes"]
+    },
+    {
+      "tag": "ploan_apply_no",
+      "patterns": [],
+      "responses": [
+        "Alright. Is there anything else I may help you with?"
+      ],
+      "context_set": [
+        "anything_else"
+        ]
+    },
+    {
+      "tag": "contact",
+      "patterns": [
+        "pink@gmail.com",
+        "@",
+        "gmail.com",
+        ".com",
+        ".in",
+        ".gov",
+        ".us"
+      ],
+      "responses": [
+        "apply_pl"
+      ],
+      "context_set":[
+        "anything_else"
+      ],
+      "context_filter": [
+        "ploan_apply_contact"
       ],
       "recheck": ["yes"]
     }
