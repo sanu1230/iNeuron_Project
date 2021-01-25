@@ -9,7 +9,7 @@ import re
 
 
 # load the model from disk
-file_name = 'api/model/eligibility_model.sav'
+file_name = './models/eligibility_model.sav'
 model_eli = pickle.load(open(file_name, 'rb'))
 
 
@@ -32,7 +32,7 @@ def eligibility_input(user):
     experience_inputs = []
 
     for x in user:
-        x.lower()
+        x = x.lower()
         if "my name is" in x:
             name = x.replace("my name is ", '')
             name_inputs.append([name])
@@ -79,7 +79,7 @@ def calculateAge(birthDate):
     return age
 
 
-df_company = pd.read_csv('data/Company_list.csv')
+df_company = pd.read_csv('./data/Company_list.csv')
 def company_rank(name):
     name = name.lower()
     if name in df_company['Company_name']:
@@ -90,7 +90,7 @@ def company_rank(name):
         return rank
 
 
-df_name = pd.read_csv('data/Indian-Male-Names.csv')
+df_name = pd.read_csv('./data/Indian-Male-Names.csv')
 def gender_code(name):
     name.lower()
     name = name.split(' ')
@@ -137,7 +137,9 @@ def eligibility_response(user):
     result = find_eligibility(inputs_df)
     if result == 0:
         response = "I regret to inform you that, currently you are not eligible for the loan. " \
-                   "However, you may try again after few months. Is there anything else I may help you with"
+                   "However, you may try again after few months. Just before you leave I would like to inform you " \
+                   "that our bank offers you a 'Accidental Policy' worth 5 lacs. " \
+                   "Would you like to know more about the offer"
     else:
         amount = (int(savings)*12)*3
         formatted_currency = "{}".format(amount)

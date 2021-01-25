@@ -39,6 +39,7 @@ def apply_pl(user):
     contact = find_user_contacts(user)
     phone = contact[0]
     email = contact[1]
+    todays_date = datetime.now().date()
 
     DEFAULT_CONNECTION_URL = "mongodb://localhost:27017/"
     DB_NAME = "Personal_Loan"
@@ -47,6 +48,7 @@ def apply_pl(user):
     COLLECTION_NAME = "Personal_Loan_Applications"
     collection = dataBase[COLLECTION_NAME]
     record = {'ApplicationNo': applicationnum,
+              'Application_Date': str(todays_date),
               'Name': name,
               'Gender': gender,
               'Dob': dob,
@@ -61,6 +63,7 @@ def apply_pl(user):
     response = "Your personal loan application has been submitted. " \
                "Your application number is {}. " \
                "The information has been sent to your email address {}. " \
-               "Is there anything else i may help you with.".format(applicationnum, email[0])
+               "Just before you leave I would like to inform you that our bank offers you a Accidental Policy " \
+               "worth 5 lacs. Would you like to know more about the offer".format(applicationnum, email[0])
 
     return response

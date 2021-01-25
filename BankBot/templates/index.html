@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
     <title>Voice Bankbot</title>
@@ -466,91 +466,81 @@ body, html {
   background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/7c/Cap.America_%28We_Don%27t_Trade_Lives_Vision%29.png");
 }
 </style>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>-->
 
 <script type="text/javascript">
-	   	  function speakMike(){
-	   	  var Ks = '{{killSession}}'
+!function(n){"use strict";n.fn.idle=function(e){var t,i,o={idle:6e4,events:"mousemove keydown mousedown touchstart",onIdle:function(){},onActive:function(){},onHide:function(){},onShow:function(){},keepTracking:!0,startAtIdle:!1,recurIdleCall:!1},c=e.startAtIdle||!1,d=!e.startAtIdle||!0,l=n.extend({},o,e),u=null;return n(this).on("idle:stop",{},function(){n(this).off(l.events),l.keepTracking=!1,t(u,l)}),t=function(n,e){return c&&(c=!1,e.onActive.call()),clearTimeout(n),e.keepTracking?i(e):void 0},i=function(n){var e,t=n.recurIdleCall?setInterval:setTimeout;return e=t(function(){c=!0,n.onIdle.call()},n.idle)},this.each(function(){u=i(l),n(this).on(l.events,function(){u=t(u,l)}),(l.onShow||l.onHide)&&n(document).on("visibilitychange webkitvisibilitychange mozvisibilitychange msvisibilitychange",function(){document.hidden||document.webkitHidden||document.mozHidden||document.msHidden?d&&(d=!1,l.onHide.call()):d||(d=!0,l.onShow.call())})})}}(jQuery);
 
-   	      if (Ks=="no") {
+function speakBot(msg) {
+    let speech = new SpeechSynthesisUtterance();
+<!--    let voice = window.speechSynthesis.getVoices();-->
+    speech.lang = "en-US";
+<!--    speech.voice = voice[1];-->
+    speech.text = msg;
+    speech.volume = 1;
+    speech.rate = 1.5;
+    speech.pitch = 1.1;
+    speech.gender= 0;
+    speechSynthesis.speak(speech);
+    };
 
+
+        function speakMike() {
+            var Ks = '{{killSession}}'
             let userId = '{{userID}}';
             let msg = '{{botResp}}';
+	   	  if (Ks=="no") {
+	   	    if (msg == "Thanks for chatting with me. I hope your query is solved. Goodbye.") {
+	   	        stopSpeech(event);
+                speakBot(msg);
+                var stop = $(document).trigger("idle:stop");
+                setTimeout(function(){ closeForm(); }, 13000);
+                    }
+            else    {
+                speakBot(msg);
+                checkMike();
+                        }
+                }
+          else   {
+            stopSpeech(event);
+            speakBot(msg);
+            var stop = $(document).trigger("idle:stop");
+            setTimeout(function(){ closeForm(); }, 13000);
+                }
+        };
 
-            let speech = new SpeechSynthesisUtterance();
-            let voice = window.speechSynthesis.getVoices()[3];
-            speech.lang = "en-US";
-            speech.voice = voice;
-            speech.text = msg;
-            speech.volume = 1;
-            speech.rate = 2;
-            speech.pitch = 1;
-
-            speechSynthesis.speak(speech);
-
-            speech.onend = () => checkMike();
-           } else {
-           		$(':button').prop('disabled', true);
-           		$(document).trigger('idle:stop');
-
-           }
-
-}
 
 function checkMike(){
    	  var ms = '{{mike_status}}'
-
-   	  if (ms=="yes")
-   	  {
+   	  if (ms=="yes")  {
    	  	  startSpeech(event);
-   	  	  };
-
+   	  	  }
    	  };
-
-</script>
-
-<script src="//code.jquery.com/jquery.min.js"></script>
-
-<script>
-	// -------- THIS IS THE JS SOURCE CODE OF Jquery.Idle -->
-!function(n){"use strict";n.fn.idle=function(e){var t,i,o={idle:6e4,events:"keydown",onIdle:function(){},onActive:function(){},onHide:function(){},onShow:function(){},keepTracking:!0,startAtIdle:!1,recurIdleCall:!1},c=e.startAtIdle||!1,d=!e.startAtIdle||!0,l=n.extend({},o,e),u=null;return n(this).on("idle:stop",{},function(){n(this).off(l.events),l.keepTracking=!1,t(u,l)}),t=function(n,e){return c&&(e.onActive.call(),c=!1),clearTimeout(n),e.keepTracking?i(e):void 0},i=function(n){var e,t=n.recurIdleCall?setInterval:setTimeout;return e=t(function(){c=!0,n.onIdle.call()},n.idle)},this.each(function(){u=i(l),n(this).on(l.events,function(){u=t(u,l)}),(l.onShow||l.onHide)&&n(document).on("visibilitychange webkitvisibilitychange mozvisibilitychange msvisibilitychange",function(){document.hidden||document.webkitHidden||document.mozHidden||document.msHidden?d&&(d=!1,l.onHide.call()):d||(d=!0,l.onShow.call())})})}}(jQuery);
-
-// <-- THIS IS THE JS SOURCE CODE OF Jquery.Idle --------
-
 
 
 $(document).idle({
-  idle: 40000,
-  events:'mousemove keydown mousedown touchstart',
-  onIdle: function(){
-    alert('You did nothing for 30 seconds');
-    let msgEnd ="Since there is no response from your end, I will have to end this conversation now. I appreciate your time and patients. Please text or speak to me if you need my help. Goodbye.";
-    let speechEnd = new SpeechSynthesisUtterance();
-    speechEnd.lang = "en-US";
-    speechEnd.text = msgEnd;
-    speechEnd.volume = 1;
-    speechEnd.rate = 2;
-    speechEnd.pitch = 1;
-    speechSynthesis.speak(speechEnd);x`
-    speechEnd.onend = () => endSpeechInput(event);
+    onIdle: function(){
+        endSpeechInput(event);
+        scrollToBottom();
+        },
+    idle: 60000
+ })
 
-  }
-})
 
 
 </script>
 </head>
-<body onload="speakMike(); scrollToBottom();">
-
+<body onload="speakMike(); getFocus();">
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a href="about">About</a>
-      <a href="#">Tutorials</a>
-      <a href="#">Gallery</a>
+      <a href="#">Reviews</a>
+      <a href="#">products</a>
       <a href="charts">Charts</a>
       <a href="contact">Contact</a>
       <a href="video_feed">Webcam</a>
     </div>
-
 
 
 <div class="hero-image">
@@ -566,8 +556,7 @@ $(document).idle({
 </div>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
-<input type="image" src="https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/1024/messages_5122x.png" class="open-button" onload="openForm()" onclick="openForm()"  />
+<input type="image" src="https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/1024/messages_5122x.png" class="open-button" onload="openForm(); scrollToBottom();" onclick="openForm()"  />
 
 
 <div class="chat-popup" id="myForm">
@@ -576,7 +565,7 @@ $(document).idle({
             <div class="contact bar">
                 <div class="pic bot"></div>
                 <div class="name">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeForm()">X</a>
+                    <a href="javascript:void(0)" class="closebtn" onclick="goodBye()">X</a>
                     <h4>AssistBot &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4>
                 </div>
                 <div class="seen">Online</div>
@@ -585,7 +574,7 @@ $(document).idle({
             <div class="messages" id="chat">
               {% for item in user_input %}
                 {% for key, value in item %}
-                    <div class="{{key}}">
+                    <div id="chat_screen" class="{{key}}">
                         {{value}}
                     </div>
                 {% endfor %}
@@ -594,12 +583,12 @@ $(document).idle({
 
             <div class="input">
                 <div class="form-group">
-                    <input type="text" name="user_input" class="form-control" placeholder="Type your query">
+                    <input type="text" name="user_input" id="input" class="form-control" placeholder="Type your query">
                     <input type="hidden" name="mic_status" class="form-control" value="off">
                     <input type="hidden" name="userID" class="form-control" value='{{userID}}'>
                     <input type="hidden" name="killSession" class="form-control" value='{{killSession}}'>
-                    <button type="submit" class="Submitbtn" onclick="scrollToBottom()">Send</button>
-                    <button type="button" id="speak" value="Speak">Speak</button>
+                    <button type="submit" class="Submitbtn"  onclick="scrollToBottom();">Send</button>
+                    <button type="button" class="Submitbtn" id="speak" onclick="toggleSpeech(event)">Speak</button>
                 </div>
             </div>
         </div>
@@ -614,64 +603,85 @@ $(document).idle({
 
 <script type="text/javascript">
 
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.continuous = true;
+recognition.lang = 'en-US';
 
-$(function () {
-    var recognition = new webkitSpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    var final_transcript = '';
-    recognition.lang = 'en-US';
+
+function startSpeech(event) {
+    recognition.start();
+    final_transcript = '';
     recognition.onresult = function(event) {
-        var interim_transcript = '';
-        for (var i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-            final_transcript += event.results[i][0].transcript;
-            } else {
-                interim_transcript += event.results[i][0].transcript;
-                }
-            };
-            handleSpeechInput(event);
-        };
-
-        var elem = document.getElementById("speak");
-        if (elem.value=="Speak") {
-            $('#speak').click(function () {
-                elem.value = "Stop";
-                recognition.start();
-                alert('button Stop');
-                });
-            }
-        else {
-            $('#speak').click(function () {
-                elem.value = "Speak";
-                recognition.stop();
-                alert('button Stop');
-                });
-            }
-    });
+      var interim_transcript = '';
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          final_transcript += event.results[i][0].transcript;
+        } else {
+          interim_transcript += event.results[i][0].transcript;
+        }
+      };
+      handleSpeechInput(event);
+    };
+  }
 
 
 
-      	function handleSpeechInput(event) {
-        var q = document.getElementById("q");
-        q.value = final_transcript;
-        q.form.submit();
-        startSpeech(event);
-      }
+function stopSpeech(event) {
+    recognition.stop();
+}
 
-        function endSpeechInput(event) {
-        var q = document.getElementById("q");
-        q.value = "TimeOut";
-        killSession="yes"
-        document.getElementById("a").setAttribute('value','yes');
-        q.form.submit();
+function getFocus() {
+  document.getElementById("input").focus();
+}
+
+var a = 1;
+function toggleSpeech(event) {
+    if (a==1) {
+    startSpeech(event);
+    a++;
+    }
+    else if (a==2) {
+    a--;
+    stopSpeech(event);
+    }
+}
 
 
-      }
+function handleSpeechInput(event) {
+    var q = document.getElementById("q");
+    q.value = final_transcript;
+    q.form.submit();
+    startSpeech(event);
+}
 
-</script>
-<script>
-function openNav() {
+function endSpeechInput(event) {
+    var q = document.getElementById("q");
+    q.value = "TimeOut";
+    killSession="yes"
+    document.getElementById("a").setAttribute('value','yes');
+    q.form.submit();
+}
+
+
+
+var gb = 1;
+function goodBye() {
+    if (gb==1) {
+    closeMsg = "Are you sure you want to leave the conversation. If yes, than click the 'X' button again.";
+    speakBot(closeMsg);
+    gb++;
+    } else if (gb==2) {
+    stopSpeech(event);
+    finalMsg = "GoodBye";
+    speakBot(finalMsg);
+    var stop = $(document).trigger("idle:stop");
+    closeForm();
+    gb--;
+    }
+}
+
+function openNav()  {
   document.getElementById("mySidebar").style.width = "200px";
   document.getElementById("main").style.marginLeft = "200px";
 }
@@ -690,9 +700,10 @@ function openForm() {
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-  document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("main").style.marginLeft= "0";
 }
+
 function scrollToBottom() {
     var chat = document.getElementById("chat");
     chat.scrollTop = chat.scrollHeight - chat.clientHeight;
