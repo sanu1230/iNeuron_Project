@@ -23,10 +23,11 @@ def faq_clean_up(sentence):
 
 
 def faq_response(query):
+    global match_perc1
     list1 = faq_clean_up(query)
     scr = 0
     quest = ''
-    response = ''
+    result = []
 
     for item in faq_list['conversations']:
         tk_item = faq_clean_up(item[0])
@@ -39,12 +40,16 @@ def faq_response(query):
             quest = item[0]
             response = item[1]
             match_perc1 = SequenceMatcher(None, query, quest).ratio()
-            # print(match_perc)
+            if match_perc1 > 0.50:
+                result.append(response)
+                # print(match_perc1)
 
-    if match_perc1 > 0.60:
-        return response
+    if bool(result):
+        return result[-1]
+    else:
+        return None
 
-# query = "if there is issue during withdrawal or part prepayment"
+
+# query = "Would there be any intimation about my next emi or due date"
 # res = faq_response(query)
 # print(res)
-

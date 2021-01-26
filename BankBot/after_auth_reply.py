@@ -17,7 +17,7 @@ def lateChargeCheck(user):
         resp = "I see that the last payment received was on {} and your due date was on {}, and hence there is a " \
                "late fee charged for the amount of {}. The late charge looks valid. " \
                "Please be informed that Accounts not paid within terms are subject to a 20% monthly finance charge. " \
-               "Does that answer your query? (Please answer in yes or no)".format(lastpRevd, nextDueDate, latep_amt)
+               "Does that satisfy your query?".format(lastpRevd, nextDueDate, latep_amt)
         return resp
 
 
@@ -31,14 +31,14 @@ def topUpCheck(user):
     prin_amt = customer_data['Principle_Amount']
     prin_amt = int(prin_amt)
     topup_amt = ((prin_amt * 20)/100) + prin_amt
-    if loan_status == 'Active' and (rem_tenure <= 6) and ((int(income) - int(emi)) > int(emi)):
+    if loan_status == 'Active' and (int(rem_tenure) <= 6) and ((float(income) - float(emi)) > float(emi)):
         response = "Congratulations!!, you are eligible for a top-up loan, up to Rupees {}. " \
                    "Would you like to apply for the loan".format(topup_amt)
         return response
     else:
         response = "I regret to inform you that, currently you are not eligible for the top-up loan. " \
                    "However, you may try again after few months. Just before you leave I would like to inform you " \
-                   "that our bank offers you a 'Accidental Policy' worth 5 lacs. " \
+                   "that our bank offers you a Accidental Policy worth 5 lacs. " \
                    "Would you like to know more about the offer"
         return response
 
@@ -67,11 +67,13 @@ def forecloseAmtCheck(user):
     return response
 
 
-def f_closeRequest():
+def f_closeRequest(user):
     global foreclose_amt
     c = datetime.now()
     closeTime = (c.hour * 60 * 60) + (c.minute * 60) + c.second
     f_closeRefNum = 'fl' + str(closeTime)
+    result2 = auth_input(user)
+    customer_id = result2[0]
     res = recommResponse(customer_id)
     resp = "Your request for foreclosure of your personal loan account has been registered. " \
                "Please note your reference number is {}. This request is valid for next 24 hours, " \

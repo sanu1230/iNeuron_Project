@@ -138,7 +138,7 @@ def eligibility_response(user):
     if result == 0:
         response = "I regret to inform you that, currently you are not eligible for the loan. " \
                    "However, you may try again after few months. Just before you leave I would like to inform you " \
-                   "that our bank offers you a 'Accidental Policy' worth 5 lacs. " \
+                   "that our bank offers you a Accidental Policy worth 5 lacs. " \
                    "Would you like to know more about the offer"
     else:
         amount = (int(savings)*12)*3

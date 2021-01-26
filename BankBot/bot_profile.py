@@ -23,10 +23,11 @@ def profile_clean_up(sentence):
 
 
 def profile_response(query):
+    global match_perc
     list1 = profile_clean_up(query)
     scr = 0
     response = ''
-    match_perc = ''
+    result = []
 
     for item in botprofile_list['conversations']:
         tk_item = profile_clean_up(item[0])
@@ -39,12 +40,16 @@ def profile_response(query):
             quest = item[0]
             response = item[1]
             match_perc = SequenceMatcher(None, query, quest).ratio()
-            print(match_perc)
+            if match_perc > 0.70:
+                result.append(response)
+                print(match_perc)
 
-    if match_perc > 0.80:
-        return response
+    if bool(result):
+        return result[-1]
+    else:
+        return None
 
-# query = "who are you?"
+
+# query = "Who ar you"
 # res = profile_response(query)
 # print(res)
-

@@ -217,7 +217,7 @@
         "topup_request"
       ],
       "context_set": [
-        "upselling"
+        "recommend"
       ]
     },
     {
@@ -297,7 +297,8 @@
       ],
       "context_set": [
         "upselling"
-      ]
+      ],
+      "recheck": ["yes"]
     },
     {
       "tag": "want_personal_loan",
@@ -525,7 +526,7 @@
       "tag": "upselling_yes",
       "patterns": [],
       "responses": [
-        "Thankyou, the accidental policy cover provided is applicable 24 hours a day, 7 day a week, 365 days of the year. The individual stands protected by this Personal Accident cover in India and any other location worldwide. On death due to accident, the nominee will be paid an amount of 5 lacs, your monthly installment will be Rupees 550 only. Do you wish to apply ?"
+        "Thank you. The accidental policy cover provided is applicable 24 hours a day, 7 day a week, 365 days of the year. The individual stands protected by this Personal Accident cover in India and any other location worldwide. On death due to accident, the nominee will be paid an amount of 5 lacs, your monthly installment will be Rupees 550 only. Do you wish to apply ?"
       ],
       "context_set": [
         "upselling_apply"
@@ -545,7 +546,7 @@
       "tag": "upselling_apply_yes",
       "patterns": [],
       "responses": [
-        "Thankyou for your decision to purchase the Accidental Insurance Policy. I have forwarded your contact information to the concern department. One of our officer will soon get in touch with you. Is there anything else I may help you with."
+        "Thank you for your decision to purchase the Accidental Insurance Policy. I have forwarded your contact information to the concern department. One of our officer will soon get in touch with you. Is there anything else I may help you with."
       ],
       "context_set": [
         "anything_else"

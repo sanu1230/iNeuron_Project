@@ -23,10 +23,11 @@ def smalltalks_clean_up(sentence):
 
 
 def smalltalks_response(query):
+    global match_perc2
     list1 = smalltalks_clean_up(query)
     scr = 0
     quest = ''
-    response = ''
+    result = []
 
     for item in smalltalks_list['conversations']:
         tk_item = smalltalks_clean_up(item[0])
@@ -39,12 +40,16 @@ def smalltalks_response(query):
             quest = item[0]
             response = item[1]
             match_perc2 = SequenceMatcher(None, query, quest).ratio()
-            print(match_perc2)
+            if match_perc2 > 0.80:
+                result.append(response)
+                print(match_perc2)
 
-    if match_perc2 > 0.40:
-        return response
+    if bool(result):
+        return result[-1]
+    else:
+        return None
 
-# query = "i have few questions"
+# query = "what is AI"
 # res = smalltalks_response(query)
 # print(res)
 

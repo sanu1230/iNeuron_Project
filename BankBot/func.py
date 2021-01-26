@@ -14,8 +14,9 @@ story_conv_file = open('data/story_conv.json').read()
 story_conv = json.loads(story_conv_file)
 
 yes = ["yes", "ok", "yep", "okay", "fine", "cool", "sure", "all right", "right", "yes please", "go ahead", "positive",
-       "ok man", "of course", "correct"]
-no = ["no", "nope", "never", "na", "naa", "I do not", "you cannot", "No please", "stop", "no man", "wrong"]
+       "ok man", "of course", "correct", "yes of course"]
+no = ["no", "nope", "never", "na", "naa", "I do not", "you cannot", "No please", "stop", "no man", "wrong",
+      "of course not", "I dont think so", "not ok", "not okay", "obviously no"]
 
 contextForAuth = ["charges", "top_up", "foreclose"]
 
@@ -45,8 +46,10 @@ recheck_tag = []
 
 next_context = []
 
-recheck_tag_yes = ["personal_loan_apply_yes", "ploan_apply_contact_yes", "auth_yes", "charges_yes"]
-recheck_tag_no = ["personal_loan_apply_no", "ploan_apply_contact_no", "auth_no", "charges_no"]
+recheck_tag_yes = ["personal_loan_apply_yes", "ploan_apply_contact_yes", "auth_yes", "charges_yes",
+                   "top_up_yes", "foreclose_yes", "application_status_yes"]
+recheck_tag_no = ["personal_loan_apply_no", "ploan_apply_contact_no", "auth_no", "charges_no",
+                  "top_up_no", "foreclose_no", "application_status_no"]
 
 
 def reconfirm(query):
@@ -56,12 +59,16 @@ def reconfirm(query):
 
 def getTag(query, ints, cTag):
     global all_conv_tags, context
-    if query in yes:
-        con = context[cTag][0]
-        tag = con + "_yes"
-    elif query in no:
-        con = context[cTag][0]
-        tag = con + "_no"
+    if bool(context):
+        if query in yes:
+            con = context[cTag][0]
+            tag = con + "_yes"
+        elif query in no:
+            con = context[cTag][0]
+            tag = con + "_no"
+        else:
+            tag = ints[0]['intent']
+        print('getTag1: ', tag)
     else:
         tag = ints[0]['intent']
     print('getTag1: ', tag)
@@ -149,6 +156,7 @@ def contextResponseGen(query, tag, intents_json, cTag):
                     print('context3: ', context)
                     return response
             elif 'context_set' in i:
+                count = 1
                 context[cTag] = i['context_set']
                 contextToCheckPath = i['context_set'][0]
                 if context[cTag][0] in contextForAuth:
@@ -160,6 +168,7 @@ def contextResponseGen(query, tag, intents_json, cTag):
                 return response
             elif 'context_filter' not in i or \
                     (cTag in context and 'context_filter' in i and i['context_filter'] == context[cTag]):
+                count = 1
                 response = random.choice(i['responses'])
                 print('context5: ', context)
                 # print(response)
@@ -243,7 +252,7 @@ def topicResponse(topic, cTag, user):
         return response
     elif topic == 'top_up':
         response = topUpCheck(user)
-        if '"Congratulations!!,' in response:
+        if 'Congratulations!!' in response:
             context[cTag] = ['topup_apply']
             return response
         else:

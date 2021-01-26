@@ -30,8 +30,5 @@
   "auth": {
     "authenticate_yes": "first_name",
     "first_name": "dateofbirth"
-  },
-  "upselling": {
-    "recommend_yes": "upselling_yes"
   }
 }

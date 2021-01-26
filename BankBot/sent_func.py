@@ -48,7 +48,7 @@ def sentiment_check(query, user):
                        "Please note that you will receive a call back form a live agent with in 24hrs. " \
                        "Your reference number is {}. " \
                        "Just before you leave I would like to inform you that our bank offers you a" \
-                       " 'Accidental Policy' worth 5 lacs. Would you like to know more about the offer".format(ref_num)
+                       " Accidental Policy worth 5 lacs. Would you like to know more about the offer".format(ref_num)
             return response
 
 # customerId = 1000055

@@ -36,9 +36,9 @@ def auth_input(user):
             date = date.strftime("%d-%m-%Y")
             cust_dob.append(date)
 
-    print(cust_id)
-    print(cust_name)
-    print(cust_dob)
+    # print(cust_id)
+    # print(cust_name)
+    # print(cust_dob)
     aut_input.append(cust_id[-1])
     aut_input.append(cust_name[-1])
     aut_input.append(cust_dob[-1])

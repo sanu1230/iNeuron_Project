@@ -20,7 +20,7 @@ def responseBased(resp, user, query):
         response = application_status(query)  # to check the loan application status (at end ask anything else)
         print('APST: ', response)
     elif resp == 'f_close':
-        response = f_closeRequest() # takes forclosure request
+        response = f_closeRequest(user) # takes forclosure request
     elif resp == 'topup_request':
         response = topup_application(user)
     elif resp == 'recom':
