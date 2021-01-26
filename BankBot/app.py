@@ -102,20 +102,20 @@ def getResponse(query, ints, intents, user, bot):
 
 def enter_proper_response(query):
     global response, bot, user, intents, userID
-    # try:
-    if query != '':
-        ints = predict_class(query, words, model)
-        # print(bot[-1])
-        response = getResponse(query, ints, intents, user, bot)
+    try:
+        if query != '':
+            ints = predict_class(query, words, model)
+            # print(bot[-1])
+            response = getResponse(query, ints, intents, user, bot)
+            return response
+        else:
+            response = "Please text or say your query. I will be glad to help you."
+            # print("Bot_resp1 : ", response)
+            return response
+    except  Exception as e:
+        print('error: ', e)
+        response = errorResponse()
         return response
-    else:
-        response = "Please text or say your query. I will be glad to help you."
-        # print("Bot_resp1 : ", response)
-        return response
-    # except  Exception as e:
-    #     print('error: ', e)
-    #     response = errorResponse()
-    #     return response
 
 
 # --- Write session Convo to database
